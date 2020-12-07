@@ -1,0 +1,76 @@
+.flexigrid div.fbutton .add {
+	background: url(images/add.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .email {
+	background: url(images/email.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .delete {
+    background: url(images/close.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .xls {
+    background: url(images/excel.gif) no-repeat center left;
+}
+.flexigrid div.fbutton .pdf {
+    background: url(images/pdf.png) no-repeat center left;
+}
+.flexigrid div.fbutton .reorder {
+    background: url(images/reorder.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .search {
+	background: url(images/magnifier.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .clone {
+	background: url(images/stamp.png) no-repeat center left;
+}
+.flexigrid div.fbutton .bulkadd {
+	background: url(images/bulkadd.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .web {
+	background: url(images/html.jpg) no-repeat center left;
+}
+
+.flexigrid div.fbutton .webcamera {
+	background: url(images/webcamera.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .camera {
+	background: url(images/camera.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .link {
+	background: url(images/link.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .edit {
+	background: url(images/edit.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .excel {
+	background: url(images/excel.gif) no-repeat center left;
+}
+
+.flexigrid div.fbutton .dialer {
+	background: url(images/phone.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .print {
+	background: url(images/print.jpg) no-repeat center left;
+}
+.flexigrid div.fbutton .csv {
+	background: url(images/csv-xxl.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .group {
+	background: url(images/group_add.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .ungroup {
+	background: url(images/group_del.png) no-repeat center left;
+}
+

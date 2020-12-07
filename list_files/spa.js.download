@@ -1,0 +1,285 @@
+$(document).ready(function(){
+
+  // $.ajax();  <<< CORE METHOD
+  // $('').load();
+  // $.get();
+  // $.post();
+  // $.getScript();
+  // $.getJSON();
+
+  try {
+		  $('a').on('click', function(e){
+			var pageRef = $(this).attr('href');
+			
+			if ( pageRef != '#' )
+			{
+				if ( typeof hideNavMenu == 'function' )
+					hideNavMenu();
+				callPage(pageRef)
+				e.preventDefault();
+			}
+		  });
+  }
+  catch(e){}
+ 
+  function callPage(pageRefInput){
+    // Using the core $.ajax() method
+
+	console.log('loading page2 ', pageRefInput);
+	if ( pageRefInput != '#' && pageRefInput.indexOf("cmd=logout") == -1 && pageRefInput.indexOf("mailto:") == -1 )
+	{
+		var cont = document.getElementById("current_content");
+		if ( cont != null )	
+			cont.value = pageRefInput;
+
+		$('.content').html("<img src='img/spinning.gif'/>");
+		addHistory(pageRefInput);
+
+//console.log('add ' + window.history.length + ' history ', pageRefInput);
+
+		$.ajax({
+			url: pageRefInput,
+			type: "GET",
+			dataType : 'text',
+		 
+			success: function( response ) {
+	//          console.log('the page was loaded');
+			  $('.content').html(response);
+			  
+				if (typeof onPostLoad == 'function') { 
+				  onPostLoad(pageRefInput); 
+				}
+
+				$('.content a').on('click', function(e){
+					e.preventDefault();
+					var pageRef = $(this).attr('href');
+
+					callPage(pageRef)
+					e.preventDefault();
+				  });
+			},
+		 
+			error: function( jqXHR, textStatus, errorThrown ) {
+			  console.log('the page was NOT loaded ' + jqXHR.status, textStatus);
+			  $('.content').html("There was an error loading the page click F5 to refresh. " + jqXHR.status);
+			  
+			  if ( jqXHR.status == 0 || jqXHR.status == 405 )
+			  {
+					  window.location.reload();
+			  }
+
+			},
+		 
+			complete: function( xhr, status ) {
+//			  console.log("The request is complete!");
+			}
+		});    
+	}
+	else if ( pageRefInput.indexOf("cmd=logout") != -1 )
+	{
+		window.location = pageRefInput;
+	}
+  }
+
+});
+
+function spaRefreshNavigatePage()
+{	
+	var cont = document.getElementById("current_content");
+	if ( cont != null )	
+	{
+		var pageRefInput = cont.value;
+		if ( pageRefInput != "" )
+		{
+			if ( pageRefInput.indexOf("#") == -1 && pageRefInput.indexOf("cmd=logout") == -1 && pageRefInput.indexOf("sms:") == -1 && pageRefInput.indexOf("tel:") == -1 && pageRefInput.indexOf("mailto:") == -1 )
+			{
+				$('.content').html("<img src='img/spinning.gif'/>");
+				$.ajax({
+					url: pageRefInput,
+					type: "GET",
+					dataType : 'text',
+				 
+					success: function( response ) {
+						
+				        if ( response.indexOf('<!--lxxxogin-->'.replace('lxxxogin',"login")) != -1 && typeof reloginApp == 'function' ) {
+					   reloginApp();
+  				 	   return;
+				        }
+					  if ( typeof onUnload === "function" ) {
+						onUnload();
+					  }
+						
+					  $('.content').html(response);
+					  
+						if (typeof onPostLoad == 'function') { 
+						  onPostLoad(pageRefInput); 
+						}
+						$('.content a').on('click', function(e){
+							e.preventDefault();
+							var pageRef = $(this).attr('href');
+
+//							callPage(pageRef)
+							e.preventDefault();
+						  });
+					},
+				 
+					error: function( jqXHR, textStatus, errorThrown ) {
+					  console.log('the page was NOT loaded ' + jqXHR.status, textStatus);
+					  $('.content').html("There was an error loading the page click F5 to refresh. " + jqXHR.status);
+					  
+					  if ( jqXHR.status == 0 || jqXHR.status == 405 )
+					  {
+							  window.location.reload();
+					  }
+
+					},
+				 
+					complete: function( xhr, status ) {
+					}
+				});    
+			}
+		}
+	}
+}
+
+
+function spaNavigatePageNoHistory(pageRefInput)
+{
+	console.log('loading page3 ', pageRefInput);
+	if ( pageRefInput.indexOf("#") == -1 && pageRefInput.indexOf("cmd=logout") == -1 && pageRefInput.indexOf("sms:") == -1 && pageRefInput.indexOf("tel:") == -1 && pageRefInput.indexOf("mailto:") == -1 )
+	{
+		var cont = document.getElementById("current_content");
+		if ( cont != null )	
+			cont.value = pageRefInput;
+
+		$('.content').html("<img src='img/spinning.gif'/>");
+		
+		$.ajax({
+			url: pageRefInput,
+			type: "GET",
+			dataType : 'text',
+		 
+			success: function( response ) {
+			  var con = document.getElementById("current_content");
+			  if ( con != null )
+				con.value = pageRefInput;
+
+				if (typeof onPostLoad == 'function') { 
+				  onPostLoad(pageRefInput); 
+				}
+	//          console.log('the page was loaded');
+			  $('.content').html(response);
+			  
+				$('.content a').on('click', function(e){				
+					var pageRef = $(this).attr('href');
+
+//					console.log("Link " + pageRef );
+					if ( pageRef == null || pageRef.indexOf("cmd=logout") != -1 || pageRef.indexOf("sms:") != -1 || pageRef.indexOf("tel:") != -1 || pageRef.indexOf("mailto:") != -1 )
+					{
+					}	
+					else
+					{
+						spaNavigatePage(pageRef);
+						e.preventDefault();
+					}
+				  });
+			},
+		 
+			error: function( jqXHR, textStatus, errorThrown ) {
+			  console.log('the page was NOT loaded ' + jqXHR.status, textStatus);
+			  $('.content').html("There was an error loading the page click F5 to refresh. " + jqXHR.status);
+			  
+			  if ( jqXHR.status == 0 || jqXHR.status == 405 )
+			  {
+					  window.location.reload();
+			  }
+
+			},
+		 
+			complete: function( xhr, status ) {
+			  //console.log("The request is complete!");
+			}
+		});    
+	}
+}
+
+function spaNavigatePage(pageRefInput){
+    // Using the core $.ajax() method
+
+	console.log('loading page3 ', pageRefInput);
+	if ( pageRefInput.indexOf("#") == -1 && pageRefInput.indexOf("cmd=logout") == -1 && pageRefInput.indexOf("sms:") == -1 && pageRefInput.indexOf("tel:") == -1 && pageRefInput.indexOf("mailto:") == -1 )
+	{
+		if ( typeof preNavigate == 'function' )
+		{
+			if ( preNavigate() == false )
+				return;
+		}
+		
+		dirtyFieldFlag = false;		
+		preNavigate = null;
+		
+		var cont = document.getElementById("current_content");
+		if ( cont != null )	
+			cont.value = pageRefInput;
+
+		$('.content').html("<img src='img/spinning.gif'/>");
+		
+
+		
+		$.ajax({
+			url: pageRefInput,
+
+			type: "GET",
+
+			dataType : 'text',
+		 
+			success: function( response ) {
+			  var con = document.getElementById("current_content");
+			  if ( con != null )
+				con.value = pageRefInput;
+			  addHistory(pageRefInput);
+//console.log('add ' + window.history.length + ' history ', pageRefInput);
+			    if ( response.indexOf('<!--lxxxogin-->'.replace('lxxxogin',"login")) != -1 && typeof reloginApp == 'function' ) {
+				   reloginApp();
+			 	   return;
+			    }
+
+				if (typeof onPostLoad == 'function') { 
+				  onPostLoad(pageRefInput); 
+				}
+
+	//          console.log('the page was loaded');
+			  $('.content').html(response);
+			  
+				$('.content a').on('click', function(e){				
+					var pageRef = $(this).attr('href');
+
+//					console.log("Link " + pageRef );
+					if ( pageRef == null || pageRef.indexOf("cmd=logout") != -1 || pageRef.indexOf("sms:") != -1 || pageRef.indexOf("tel:") != -1 || pageRef.indexOf("mailto:") != -1 )
+					{
+					}	
+					else
+					{
+						spaNavigatePage(pageRef);
+						e.preventDefault();
+					}
+				  });
+			},
+		 
+			error: function( jqXHR, textStatus, errorThrown ) {
+			  console.log('the page was NOT loaded ' + jqXHR.status, textStatus);
+			  $('.content').html("There was an error loading the page click F5 to refresh. " + jqXHR.status);
+			  
+			  if ( jqXHR.status == 0 || jqXHR.status == 405 )
+			  {
+					  window.location.reload();
+			  }
+
+			},
+		 
+			complete: function( xhr, status ) {
+			  //console.log("The request is complete!");
+			}
+		});    
+	}
+}

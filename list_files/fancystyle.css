@@ -1,0 +1,502 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+	font-family: 'Myriad Pro';
+	src: url('fonts/MyriadPro-Regular.eot');
+	src: url('fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
+		url('fonts/MyriadPro-Regular.woff2') format('woff2'),
+		url('fonts/MyriadPro-Regular.woff') format('woff'),
+		url('fonts/MyriadPro-Regular.ttf') format('truetype'),
+		url('fonts/MyriadPro-Regular.svg#MyriadPro-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+body2{
+	margin:0;
+	padding:0;
+	font-family: 'Myriad Pro';
+}
+.imgFull{
+	max-width:100%;
+}
+.clear{
+	clear:both;
+}
+.container{
+	width:1080px;
+	margin:auto;
+}
+.logo-outer {
+     padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+.logo-outer .logo {
+    margin: auto;
+    width: 50%;
+}
+.gray-sec{
+	background:#21374c;
+}
+.gray-sec h2{
+	 color: hsl(0, 0%, 100%);
+    font-size: 40px;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0;
+    padding: 25px;
+    text-align: center;
+}
+.orange-sec{
+	background:#ec9321;
+}
+.orange-sec h2{
+	color: hsl(0, 0%, 100%);
+    font-size: 45px;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+.address-section .sec-inner {
+    border: 1px solid hsl(0, 0%, 47%);
+    margin: 5px auto auto;
+    max-width: 100%;
+	border-radius:6px;
+}
+.address-section .sec-inner .top-bar-title {
+     background: #21374c;
+    color: hsl(0, 0%, 100%);
+    padding: 8px 15px;
+}
+
+.address-section .sec-inner .top-bar {
+     background: #21374c;
+    color: hsl(0, 0%, 100%);
+    padding: 8px 15px;
+    height:80px;
+}
+.address-section .sec-inner .top-bar h3 {
+	 font-size: 22px;
+    margin: 0;
+}
+.address-section .sec-inner .top-bar span {
+    float: right;
+}
+
+.address-section .sec-inner ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+	font-style:italic;
+}
+.address-section .sec-inner ul li:nth-child(2n) {
+    background: hsl(0, 0%, 89%) none repeat scroll 0 0;
+}
+
+.address-section .sec-inner ul li {
+    color: hsl(180, 0%, 50%);
+    font-size: 20px;
+    padding: 8px 0 8px 15px;
+}
+.address-section .sec-inner ul li span {
+    /*display: inline-block;
+    width: 200px;*/
+	float: left;
+    width: 33%;
+	display:flex;
+}
+
+.address-section .sec-inner ul li em {
+    float: right;
+    width: 65%;
+}
+.address-section .sec-inner ul.total-amount > li {
+    padding-top: 20px;
+}
+.button-sec .btn-inner {
+    margin: 50px auto auto;
+    max-width: 80%;
+}
+.button-sec .btn-inner img {
+    margin-right: 14px;
+    vertical-align: middle;
+}
+.button-sec .btn-inner a {   
+    border-radius: 5px;
+    color: hsl(0, 0%, 100%);
+    display: block;
+    /*float: left;*/
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+   /* margin-right: 25px;*/
+    padding-top: 40px;
+	padding-bottom: 40px;
+    padding-left: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 353px;
+}
+.btn-inner a.direction{
+	 background: hsl(34, 90%, 54%) none repeat scroll 0 0;
+	 float:right;
+}
+.btn-inner a.fileupload{
+	 background: #f7a132;
+	 float:left;
+}
+/*****************first psd**************************/
+.rememberMe
+{
+	width:30px;
+    height:30px;
+}
+
+.form-section {
+    margin-top: 40px;
+}
+
+
+
+
+.form-section .form-inner .form-outer {
+    margin: auto;
+    max-width: 71%;
+}
+.form-section .form-inner .heading h3 {
+    color: hsl(0, 0%, 46%);
+    font-size: 50px;
+    font-style: italic;
+    text-align: center;
+}
+.form-outer input {
+     background-color: hsl(120, 5%, 96%);
+    border: medium none;
+    border-radius: 5px;
+    color: hsl(0, 0%, 71%);
+    font-size: 22px;
+    font-style: italic;
+    margin: 20px 0;
+    padding: 32px 10px 12px 23px;
+    width: 83%;
+}
+.form-outer input.sbmit {
+    background: #f29d26 none repeat scroll 0 0;
+    color: #ffffff;
+    font-size: 32px;
+    padding: 21px;
+    width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-sec {
+    margin-top: 100px;
+    padding-bottom: 50px;
+}
+.footer-sec .footer-inner {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+.rememeber {
+	width:100%;
+}
+.rememeber > img {
+    margin-right: 10px;
+    vertical-align: top;
+}
+.rememeber span {
+    color: hsl(0, 0%, 71%);
+    font-size: 24px;
+    font-style: italic;
+}
+/*******************second psd*************************/
+.address-section.midcontainer .sec-inner ul li {
+    padding: 16px 0 16px 20px;
+	position:relative;
+}
+.address-section.midcontainer .sec-inner ul li span {
+    width: 85%;
+}
+.address-section.midcontainer .sec-inner ul li em {
+    width: 7%;
+	height:auto;
+}
+.address-section.midcontainer .sec-inner ul li em img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.address-section.midcontainer .sec-inner .top-bar {
+    padding: 8px 10px 8px 20px;
+}
+.address-section.midcontainer .sec-inner .top-bar h3{
+	font-size:25px;
+}
+
+@media screen and (max-width:1080px){
+.container{
+	width:100%;
+}
+}
+@media screen and (max-width:980px){
+.button-sec .btn-inner a{
+	width:272px;
+}
+.button-sec .btn-inner img {
+    float: left;
+    margin-right: 0;
+}
+.button-sec .btn-inner a span {
+    float: right;
+    text-align: center;
+    width: 63%;
+}
+}
+@media screen and (max-width:800px){
+.button-sec .btn-inner a {
+    width: 240px;
+	font-size:31px;
+}
+.button-sec .btn-inner a span {
+    width: 62%;
+}
+
+.form-outer form input.user,.form-outer form input.pass  {
+    background-position: 4% 38%, 13% 50%;
+}
+.form-outer form input{
+	  padding: 32px 10px 32px 99px;
+}
+}
+@media screen and (max-width:720px){
+.button-sec .btn-inner a::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.button-sec .btn-inner img {
+    float: none;
+    vertical-align: middle;
+    width: 34%;
+}
+.button-sec .btn-inner a {
+    font-size: 28px;
+    width: 211px;
+	height:69px;
+}
+/********first psd*******/
+.form-outer form input {
+    padding: 32px 10px 32px 94px;
+    width: 80%;
+}
+.form-outer form input.user,.form-outer form input.pass {
+    background-position: 4% 38%, 14% 50%;
+}
+.footer-sec .footer-inner > img {
+    width: 50%;
+}
+}
+@media screen and (max-width:640px){
+.form-outer form input.user, .form-outer form input.pass {
+    background-position: 4% 38%, 15% 50%;
+}
+.form-outer form input {
+    padding: 32px 10px 32px 88px;
+}
+.address-section .sec-inner ul li{
+	font-size:18px;
+}
+.button-sec .btn-inner a {
+    font-size: 24px;
+    height: 57px;
+    width: 189px;
+	padding:16px;
+}
+.gray-sec h2 {
+    font-size: 35px;
+}
+.orange-sec h2 {
+    font-size: 40px;
+}
+.logo-outer {
+    padding-top: 66px;
+}
+.logo-outer .logo {
+    width: 65%;
+}
+.address-section .sec-inner,.button-sec .btn-inner{
+	 max-width: 100%;
+	 overflow: auto;
+}
+.form-section {
+    margin-top: 0px;
+}
+.form-section .form-inner .heading h3 {
+    margin-top: 0;
+}
+}
+@media screen and (max-width:568px){
+.button-sec .btn-inner a {
+    font-size: 22px;
+    height: 53px;
+    padding: 16px;
+    width: 150px;
+}
+
+.button-sec .btn-inner a span {
+    width: 67%;
+}
+.button-sec .btn-inner img {
+    width: 30%;
+}
+/***************first psd***************/
+.form-section .form-inner .heading h3 {
+    font-size: 40px;
+}
+.form-outer form input.user, .form-outer form input.pass {
+    background-size: 7% auto, 2% auto;
+}
+.form-outer form input {
+    padding: 25px 10px 25px 81px;
+	 font-size: 20px;
+}
+.rememeber span {
+    font-size: 22px;
+}
+.form-outer form input.sbmit {
+    font-size: 26px;
+    padding: 17px;
+}
+.address-section.midcontainer .sec-inner .top-bar {
+    padding: 8px 10px;
+}
+.address-section.midcontainer .sec-inner ul li {
+    padding: 16px 15px 16px 10px;
+}
+}
+@media screen and (max-width:480px){
+.form-outer form input {
+    padding: 25px 10px 25px 67px;
+	width:78%;
+}
+.form-section .form-inner .heading h3 {
+    font-size: 35px;
+}
+}
+@media screen and (max-width:479px){
+.button-sec .btn-inner a {
+    font-size: 18px;
+    height: 44px;
+    width: 134px;
+}
+
+.gray-sec h2 {
+    font-size: 30px;
+}
+
+.orange-sec h2 {
+    font-size: 35px;
+}
+.address-section .sec-inner ul li {
+    font-size: 16px;
+}
+}
+@media screen and (max-width:420px){
+
+.button-sec .btn-inner img {
+    width: 33%;
+}
+.button-sec .btn-inner a {
+    font-size: 16px;
+    height: 42px;
+    width: 112px;
+	padding:11px;
+}
+/***********first psd****************/
+
+.footer-sec {
+    margin-top: 65px;
+	  padding-bottom: 30px;
+}
+.footer-sec .footer-inner > img {
+    width: 60%;
+}
+.form-section .form-inner .heading h3 {
+    font-size: 29px;
+}
+.form-outer form input {
+    padding: 20px 10px 20px 67px;
+}
+.form-outer form input.sbmit {
+    font-size: 23px;
+    padding: 14px;
+}
+/*************second psd**************/
+.address-section.midcontainer .sec-inner .top-bar {
+    padding: 8px 10px;
+}
+.address-section.midcontainer .sec-inner ul li {
+    padding: 16px 15px 16px 10px;
+}
+}
+@media screen and (max-width:375px){
+
+.address-section.midcontainer .sec-inner .top-bar h3 {
+    font-size: 20px;
+}
+.form-outer form input {
+    padding: 20px 10px 20px 58px;
+}
+.form-section .form-inner .form-outer {
+    max-width: 80%;
+}
+
+.gray-sec h2 {
+    font-size: 26px;
+}
+.orange-sec h2 {
+    font-size: 30px;
+}
+}
+@media screen and (max-width:360px){
+.logo-outer {
+    padding-top: 37px;
+	  padding-bottom: 38px;
+}
+}
+@media screen and (max-width:340px){
+
+.form-section .form-inner .heading h3 {
+    font-size: 24px;
+}
+.form-outer form input {
+    padding: 20px 10px 20px 48px;
+}
+}

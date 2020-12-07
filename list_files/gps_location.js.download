@@ -1,0 +1,192 @@
+function sendGpsLocation() 
+{	
+	var url = "/sunbase/modules/dispatch/gps_cmd.jsp?cmd=gps&heading=" + document.getElementById("myheading").value
+			+ "&speed=" + document.getElementById("myspeed").value
+			+ "&latitude=" + document.getElementById("mylat").value
+			+ "&longitude=" + document.getElementById("mylon").value
+			+ "&accuracy=" + document.getElementById("myaccur").value;
+
+		var field = document.getElementById("status_bar");
+		if ( field != null )
+			field.value = "Sending Location";
+//console.log( "sending url " + url );			
+	invokeServerAsync(url);
+}
+
+function gpsUpdateNow()
+{
+    if (navigator.geolocation ) 
+	{		
+		navigator.geolocation.getCurrentPosition(updateGpsDataNow);
+	}
+}
+function updateGpsData()
+{
+	// get gps
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+}
+
+function updateGpsDataNow(position)
+{
+	document.getElementById("mylat").value = position.coords.latitude;
+	document.getElementById("mylon").value = position.coords.longitude;
+	document.getElementById("myheading").value = ( position.heading == null ? 0 : position.heading );
+	document.getElementById("myspeed").value = ( position.speed == null ? 0 : position.speed );
+	document.getElementById("myaccur").value = ( position.accuracy == null ? 0 : position.accuracy );	
+	sendGpsLocation();
+}
+
+function setCookie(name, value, expires) {
+	document.cookie = name + "=" + escape(value) + "; path=/" + ((expires == null) ? "" : "; expires=" + expires.toGMTString());
+	//alert("Set cookie " + name + "=" + escape(value) + "; path=/" + ((expires == null) ? "" : "; expires=" + expires.toGMTString()) );
+} 
+
+function getCookie(c_name)
+{
+  if (document.cookie.length>0)
+  {
+    c_start=document.cookie.indexOf(c_name + "=");
+	//alert("Getting cookie start " + c_start );
+    if (c_start!=-1)
+    {
+       c_start=c_start + c_name.length+1;
+       c_end=document.cookie.indexOf(";",c_start);
+       if (c_end==-1) 
+	       c_end=document.cookie.length;
+       return unescape(document.cookie.substring(c_start,c_end));
+    }
+  }
+return "";
+}
+
+function showPosition(position) {
+	
+	var oldLat = document.getElementById("mylat").value;
+	var oldLon = document.getElementById("mylon").value;
+
+	console.log("GPS " + oldLat + " " + oldLon );
+	
+	// has it changed	
+	if ( oldLat == position.coords.latitude && oldLon == position.coords.longitude )
+	{
+		var field = document.getElementById("status_bar");
+		if ( field != null )
+			field.value = "Location has not changed";
+	}
+	else
+	{
+//		console.log("Position has changed.")
+		document.getElementById("mylat").value = position.coords.latitude;
+		document.getElementById("mylon").value = position.coords.longitude;
+		document.getElementById("myheading").value = ( position.heading == null ? 0 : position.heading );
+		document.getElementById("myspeed").value = ( position.speed == null ? 0 : position.speed );
+		document.getElementById("myaccur").value = ( position.accuracy == null ? 0 : position.accuracy );
+			
+		sendGpsLocation(position);
+	}	
+	var exp = new Date();     //set new date object
+	var valu = exp.getTime() + "|" + document.getElementById("mylat").value + "|" + document.getElementById("mylon").value + "|" + 
+			document.getElementById("myheading").value + "|" + document.getElementById("myspeed").value + "|" + document.getElementById("myaccur").value;
+	
+	var field = document.getElementById("status_bar");
+	var timeNext = gpsPeriod;
+	if ( field.value == "Location has not changed" )
+	{
+		field.value += " timer reset " + (timeNext/1000) + " seconds";
+	}
+	else
+		field.value = "timer reset " + (timeNext/1000) + " seconds";	
+	exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * 1));     //set 
+	setCookie('sunbasedata_gps', valu, exp);						
+	if ( gpsPeriod > 0 )
+		setTimeout( updateGpsData, gpsPeriod ); // recheck in 2 minutes
+}
+
+
+function invokeServerAsync(url)
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("POST",url,true);
+xmlhttp.send();
+}
+
+
+function countdown() 
+{
+//	console.log( "GPS " + gpsPeriod );
+    if (navigator.geolocation && gpsPeriod > 0 ) 
+	{		
+		if ( document.getElementById("mylastgpstime").value != "" )
+		{
+			var value_sec = getCookie('sunbasedata_gps');
+			if ( value_sec != null && value_sec != "")
+			{
+				var parts = value_sec.split("|");
+				if ( parts.length == 6 )
+				{
+					document.getElementById("mylastgpstime").value = parts[0];
+					document.getElementById("mylat").value = parts[1];
+					document.getElementById("mylon").value = parts[2];
+					document.getElementById("myheading").value = parts[3];
+					document.getElementById("myspeed").value = parts[4];
+					document.getElementById("myaccur").value = parts[5];
+				}
+			}
+		}
+		var now = new Date().getTime();
+		var lastTime = gpsPeriod + parseInt( document.getElementById("mylastgpstime").value == null ? 0 : document.getElementById("mylastgpstime").value );		
+		if ( lastTime < now ) // we are past due
+		{
+			var field = document.getElementById("status_bar");
+			if ( field != null )
+				field.value = "Updating Location";
+			updateGpsData();
+			sendGpsLocation();
+			
+			var exp = new Date();     //set new date object
+			var valu = exp.getTime() + "|" + document.getElementById("mylat").value + "|" + document.getElementById("mylon").value + "|" + 
+			document.getElementById("myheading").value + "|" + document.getElementById("myspeed").value + "|" + document.getElementById("myaccur").value;
+	
+			
+			var timeNext = gpsPeriod;
+			if ( field.value == "Location has not changed" )
+			{
+				field.value += " timer reset " + (timeNext/1000) + " seconds";
+			}
+			else
+				field.value = "timer reset " + (timeNext/1000) + " seconds";	
+			exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * 1));     //set 
+			setCookie('sunbasedata_gps', valu, exp);						
+			if ( gpsPeriod > 0 )
+				setTimeout( updateGpsData, gpsPeriod ); // recheck in 2 minutes
+		}
+		else // timer was for the future, continue where we left off
+		{
+			var next = lastTime;
+			next -= now;
+			var field = document.getElementById("status_bar");
+			if ( field != null )
+				field.value = "Updating Location in " + (next/1000) + " seconds";
+			else
+				console.log("could not find status bar");
+
+			setTimeout ( updateGpsData, next);
+		}
+	}
+	else
+	{
+		var field = document.getElementById("status_bar");
+		if ( field != null )
+			field.value = "GPS not enabled";
+	}
+}	
+

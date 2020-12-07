@@ -1,0 +1,538 @@
+userName  = "";
+avatarImg = "";
+schemaName = "";
+
+var websocket = null;
+function toggleChat()
+{
+   var chat = document.getElementById("chat-window");
+
+   if ( chat.style.display == 'block' )
+	  chat.style.display = 'none';
+   else
+	  chat.style.display = 'block';
+   //chat.style.display == ( chat.style.display == 'block' ? 'none' : 'block' );
+   
+   var chatList = document.getElementById("chat-user-list");
+   if ( chatList != null && chatList.innerHTML == "BLANK")
+   {
+	   chatList.innerHTML = "";
+	   reloadChatList();
+   }
+   
+}		
+
+
+	//this function can remove a array element.
+	Array.remove = function(array, from, to) {
+		var rest = array.slice((to || from) + 1 || array.length);
+		array.length = from < 0 ? array.length + from : from;
+		return array.push.apply(array, rest);
+	};
+
+	//this variable represents the total number of popups can be displayed according to the viewport width
+	var total_popups = 0;
+	
+	//arrays of popups ids
+	var popups = [];
+
+	//this is used to close a popup
+	function close_popup(id)
+	{
+		for(var iii = 0; iii < popups.length; iii++)
+		{
+			if(id == popups[iii])
+			{
+				Array.remove(popups, iii);
+				
+				document.getElementById(id).style.display = "none";
+				
+//				calculate_popups();
+				
+				return;
+			}
+		}	
+	}
+	
+	//displays the popups. Displays based on the maximum number of popups that can be displayed on the current viewport width
+	function display_popups()
+	{
+		var width = window.innerWidth;
+		var right = (width < 540 ? 0 : 250);
+		
+		for(iii = 0; iii < total_popups; iii++)
+		{
+			if(popups[iii] != undefined)
+			{
+				var element = document.getElementById(popups[iii]);
+				if(width < 540)
+				{
+					element.style.right = right + "px";
+					right = right + 20;
+				}
+				else
+				{
+					element.style.right = right + "px";
+					right = right + 320;
+				}
+
+				element.style.display = "block";
+			}
+		}
+		
+		for(var jjj = iii; jjj < popups.length; jjj++)
+		{
+			var element = document.getElementById(popups[jjj]);
+			element.style.display = "none";
+		}
+	}
+	
+	function scrollToBottom(id){
+		var div = document.getElementById(id);
+		div.scrollTop = div.scrollHeight - div.clientHeight;
+	}
+
+	function addSupportMsg(selfFlag, msg, msgBoxId)
+	{
+		var v = '<li class="' + (selfFlag ? 'self' : 'other') + '"><div class="avatar">'
+			+ '<img width="24" height="24" src="img/avatars/' + ( selfFlag ? 'Robot_icon.png' : 'sunbase.png' ) + '" /><span class="chatime">' + new Date() + '</span>' 
+			+ '<div class="messages"><p>' + msg + '</p></div></li>'
+
+		var textArea = "chat_contents_" + msgBoxId;
+		
+		var ta = document.getElementById(textArea);
+		
+		var height = ta.scrollHeight;
+		ta.innerHTML += v;
+		document.getElementById('chat_input_techsupport').value = '';
+		var div = $('.chat-window-content_tech')[0];
+		if ( div )
+			div.scrollTop = div.scrollHeight;
+	}
+
+	var inputMsg = '';
+	function checkChatEnterSupport(e, input, id )
+	{
+		var textArea = "chat_contents_" + id;
+		if (e.which == 13) 
+		{
+			inputMsg = input.value;
+			addSupportMsg(true, inputMsg, id);
+			
+			// sets up the text
+			setTimeout(function() {
+				$.ajax({
+					type: 'GET',
+					async: false,
+					url: '../chatbot/chat.jsp',
+					data: 'q=' + escape(inputMsg),
+					success: function (response) {
+						//document.getElementById("chat_input_" + id ).value = response;
+						addSupportMsg(false, response, id);
+					},
+					error : function() {
+						addSupportMsg(false, 'Sorry our chat service is down at the moment', id);
+					},
+					complete: function( xhr, status ) {
+					}	
+				});
+			}, 1200 );
+		}
+	}
+
+	
+	function checkChatEnter(e, input, id )
+	{
+		var textArea = "chat_contents_" + id;
+		if (e.which == 13) 
+		{
+			// sets up the text			
+			sendChatMessage(input.value, id);
+			document.getElementById("chat_input_" + id ).value = "";
+		}
+	}
+
+	function clearChat(id)
+	{
+		v = document.getElementById('chat_contents_' + id );
+		if ( v != null )
+		{
+			v.innerHTML = "";
+		}
+	}
+	
+	//creates markup for a new popup. Adds the id to popups array.
+	function register_popup(id, name)
+	{
+		for(var iii = 0; iii < popups.length; iii++)
+		{	
+			//already registered. Bring it to front.
+			if(id == popups[iii])
+			{
+				Array.remove(popups, iii);
+			
+				popups.unshift(id.replace("%20", " ").replace("%27", "") );
+				
+				calculate_popups();
+				
+				return;
+			}
+		}				
+		
+id = id.replace("%20", " ").replace("%27", "");
+		var element = '<div class="popup-box chat-popup" id="'+ id +'">';
+		element = element + '<div style="cursor: move;" class="popup-head">';
+		element = element + '<div class="popup-head-left">'+ name.replace("%20", " ").replace("%27", "") +'</div>';
+		element = element + '<div class="popup-head-right">';
+		element = element + '<img title="Clear" style="cursor: pointer;" width="16" height="16" src="img/erase.png" onclick="clearChat(\'' + id + '\'); return false;"/>&nbsp;&nbsp;&nbsp;';
+		element = element + '<a href="javascript:close_popup(\''+ id +'\');">&#10005;</a></div>';
+		element = element + '<div style="clear: both"></div></div><div class="chat-window-content' + id + ' popup-messages">';
+		element = element + '<ol id="chat_contents_' + id +'" class="discussion"></ol>'
+		element = element + '</div><div class="chat-input" ><input id="chat_input_' + id +'" onkeyup="checkChatEnter(event, this, \'' + id + '\')" style="width:100%; -webkit-border-radius:0px; font-size: 0.7rem;" type="text"></input>';
+		element = element + '</div></div>';
+		
+		var chatdiv = document.getElementById("chatdiv");
+		if ( !chatdiv )
+		{
+			$( document.getElementsByTagName("body")[0] ).append('<div id="chatdiv"/>');
+			chatdiv = document.getElementById("chatdiv");
+		}
+		chatdiv.innerHTML = element;	
+
+		popups.unshift(id);
+				
+		calculate_popups();
+		document.getElementById('chat_input_' + id).focus();
+		
+		$( ".popup-box" ).draggable();
+		//$( ".popup-box" ).resizable();
+		//$('.popup-box').resizable({ minHeight: 50  });
+	}
+
+	function register_popup_support(name)
+	{
+		var id = 'techsupport';
+		var name = id;
+		for(var iii = 0; iii < popups.length; iii++)
+		{	
+			//already registered. Bring it to front.
+			if(id == popups[iii])
+			{
+				Array.remove(popups, iii);
+			
+				popups.unshift(id);
+				
+				calculate_popups();
+				
+				return;
+			}
+		}				
+		
+		var element = '<div class="popup-box chat-popup" id="'+ id +'">';
+		element = element + '<div style="cursor: move;" class="popup-head">';
+		element = element + '<div class="popup-head-left">Tech Support Bot</div>';
+		element = element + '<div class="popup-head-right">';
+		element = element + '<img title="Clear" style="cursor: pointer;" width="16" height="16" src="img/erase.png" onclick="clearChat(\'' + id + '\'); return false;"/>&nbsp;&nbsp;&nbsp;';
+		element = element + '<a href="javascript:close_popup(\''+ id +'\');">&#10005;</a></div>';
+		element = element + '<div style="clear: both"></div></div><div class="chat-window-content_tech popup-messages">';
+		element = element + '<ol id="chat_contents_' + id +'" class="discussion"></ol>'
+		element = element + '</div><div class="chat-input" ><input id="chat_input_' + id +'" onkeyup="checkChatEnterSupport(event, this, \'' + id + '\')" style="width:100%; -webkit-border-radius:0px; font-size: 0.7rem;" type="text"></input>';
+		element = element + '</div></div>';
+		
+		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + element;	
+
+		var v = '<li class="other"><div class="avatar">'
+		+ '<img width="24" height="24" src="img/avatars/sunbase.png" /><span class="chatime">' + new Date() + '</span>' 
+		+ '<div class="messages"><p>How can I help you today?</p></div></li>'
+
+		var textArea = "chat_contents_" + id;
+		document.getElementById(textArea).innerHTML += v;
+		popups.unshift(id);
+				
+		calculate_popups();		
+		$( ".popup-box" ).draggable();
+		document.getElementById('chat_input_techsupport').focus();
+	}
+
+	function reloadChatList()
+	{
+		//prepare json data
+		var msg = {
+		type: 'chat_update_user_list',
+		message: '',
+		schema: schemaName,
+		from: userName,
+		avatar: '',
+		color : 'black',
+		date: ''
+		};
+
+		console.log("Sent " + msg.type + " " + schemaName  + " x=" + msg.schemaName );
+		if ( websocket != null )
+			websocket.send(JSON.stringify(msg));
+	}
+	
+	//calculate the total number of popups suitable and then populate the toatal_popups variable.
+	function calculate_popups()
+	{
+		var width = window.innerWidth;
+		if(width < 540)
+		{
+			total_popups = 1;
+		}
+		else
+		{
+			width = width - 200;
+			//320 is width of a single popup box
+			total_popups = parseInt(width/320);
+		}
+		
+		display_popups();
+		
+	}
+	
+	//recalculate when window is loaded and also when window is resized.
+	window.addEventListener("resize", calculate_popups);
+	window.addEventListener("load", calculate_popups);
+
+
+function closeWebSocket()
+{
+console.log("Close socket");
+/*try{
+
+	var msg = {
+	type: 'close',
+	message: '',
+	schema: schemaName,
+	dest: id,
+	from: userName,
+	avatar: avatarImg,
+	color : 'black',
+	date: '',
+	};
+	
+	websocket.send(JSON.stringify(msg));
+*/
+	if ( websocket != null )
+		websocket.close(1000, "");
+}
+
+function chatMessage(msg)
+{
+	msg.from = msg.from.replace("%20", "");
+	if ( msg.from[0] === ' ')
+		msg.from = msg.from.substring(1);
+
+	register_popup(msg.from, msg.from);	
+
+	var v = '<li class="' + (msg.direction == 'self' ? 'self' : 'other') + '"><div class="avatar">'
+		+ '<img width="24" height="24" src="img/avatars/' + msg.avatar + '" /><span class="chatime">' + msg.date + '</span>' 
+		+ '<div class="messages"><p>' + msg.message + '</p></div></li>'
+
+	var textArea = "chat_contents_" + msg.from.replace("%20", " ").replace("%27", "");
+		
+	var text = v;
+	
+	console.log( text );
+	
+	document.getElementById(textArea).innerHTML += text;
+
+	var div = $('.chat-window-content_' + msg.from.replace("%20", " ").replace("%27", "") )[0];
+	if ( div )
+		div.scrollTop = div.scrollHeight;
+}
+
+function sendChatMessage(mymessage, id)
+{
+	if(mymessage == ""){ //emtpy message?
+		alert("Enter Some message Please!");
+		return;
+	}
+	
+	d = new Date();
+	
+	//prepare json data
+	var msg = {
+	type: 'usermsg',
+	message: mymessage,
+	schema: schemaName,
+	dest: id,
+	from: userName,
+	avatar: avatarImg,
+	color : 'black',
+	date: d.getHours() + ":" + d.getMinutes(),
+	};
+	
+	
+	//'<%= color %>'
+	//convert and send data to server
+	//console.log("Sent " + msg );
+	if ( websocket != null )
+	{
+		websocket.send(JSON.stringify(msg));
+		console.log( msg );
+	}
+	msg.direction = "self";
+	msg.color = "blue";
+	from: id;
+	dest: userName;
+
+	userName = userName.replace(/\'/g, "");	
+	register_popup(id, id);	
+
+	var v = '<li class="self"><div class="avatar">'
+		+ '<img width="24" height="24" title="' + userName + '" src="img/avatars/' + msg.avatar + '" /><span class="chatime">' + msg.date + '</span>' 
+		+ '<div class="messages"><p>' + msg.message + '</p></div></li>'
+
+	var textArea = "chat_contents_" + id;
+		
+	var text = v +"<br/>";
+	
+//	console.log( text );
+	
+	document.getElementById(textArea).innerHTML += text;
+}
+//'img/avatars/cat.jpg'
+
+var errorChatCount = 0;
+var connectedChatCount = 0;
+function initializeChat(wsUri, user, avatar, schemax)
+{
+   try{
+	console.log("Connecting to " + wsUri );
+	websocket = new WebSocket(wsUri); 
+	
+	userName  = user;
+	avatarImg = avatar;
+	schemaName = schemax;
+
+	
+	websocket.onopen = function(ev) { // connection is open 
+		//$('#message_box').append("<div class=\"system_msg\">Connected!</div>"); //notify user
+		console.log("Connected!"); //notify user
+		//websocket.send( '' );
+		connectedChatCount = 1;
+	}
+
+	//#### Message received from server?
+	websocket.onmessage = function(ev) {
+	
+		console.log( "Got message " + ev.data );
+	
+		var msg = JSON.parse(ev.data); //PHP sends Json data
+		var type = msg.type; //message type
+		var umsg = msg.message; //message text
+		var uname = msg.name; //user name
+		var ucolor = msg.color; //color
+		
+		// JD REMOVE TEMP
+		//if ( umsg.indexOf("addNotify") != -1 )
+		//	type = 'addNotify';
+		//else
+		//	type = 'resetNotify';
+
+		if ( type == 'usermsg' )
+		{
+			chatMessage(msg);
+new Audio('msg.mp3').play()
+		}
+		else if ( type =='chat_update_user_list' )
+		{
+			umsg = msg.messageData;
+//			console.log("GOT LIST " + umsg + " " + umsg.length );
+			
+			data = '';
+			for ( i = 0; i < umsg.length; ++i )
+			{
+//				{"schema":"sunbase","user":"jdubin","useruuid":"230eab6430e24e8fa1123c6fb9de5757"}
+			    data += '<a href="#" onclick=\'register_popup("' + umsg[i].user.replace(/\'/g, "") + '", "' + umsg[i].user.replace(/\'/g, "") + '"); return false;\' style="text-decoration: none;">';
+				data += '<img class="profile-picture" src="img/avatars/' + umsg[i].avatar + '"></img>';
+				data += '<div class="profile-status online"></div>';
+				data += '<div class="chatcontent">' + umsg[i].user + '</div>';
+				data += '</a><br/>';
+			}
+			
+	//		console.log("Set data " + data );
+			document.getElementById('chat-user-list').innerHTML = data;
+			
+		}
+		else if ( type == 'addNotify' )
+		{
+			var btn = $('#notificationBtn');
+			if ( btn != null )
+			{
+				count = parseInt(btn.attr('data-badge'));
+				++count;
+				btn.attr( 'data-badge','' + count );
+				if ( btn.hasClass( "badge1" ) == false )
+				{
+					btn.addClass('badge1');
+				}
+				new Audio('msg.mp3').play();
+			}
+		}
+		else if ( type == 'resetNotify' )
+		{
+			var btn = $('#notificationBtn');
+			if ( btn != null )
+			{
+				btn.attr( 'data-badge','0' );
+				btn.removeClass('badge1');
+			}
+		}
+		
+/*		
+		if(type == 'userlistadd') 
+		{
+			// add user to the userlist
+			var split = umsg.split("-");
+			var code = split[0];
+			var name = split[1];
+			var color = split[2];
+
+//			console.log("Color " + ucolor );
+			addItem('user_box', code, name, color);
+		}		
+		else if(type == 'userlistremove') 
+		{
+			// remove user from the userlist
+			removeItem('user_box', umsg);
+		}		
+		else if(type == 'usermsg') 
+		{
+			$('#message_box').append("<div><span class=\"user_name\" style=\"color:"+ucolor+"\">"+uname+"</span> : <span class=\"user_message\" style=\"color:"+ucolor+"\">"+umsg+"</span></div>");
+			new Audio('msg.mp3').play();
+
+			//play();
+	 	}
+		else if(type == 'system')
+		{
+			$('#message_box').append("<div class=\"system_msg\">"+umsg+"</div>");
+			new Audio('msg.mp3').play();
+
+			//play();
+		}
+		
+		$('#message').val(''); //reset text
+*/		
+	};
+	
+	websocket.onerror	= function(ev){  
+	
+		if ( connectedChatCount === 0 && errorChatCount < 3 )
+		{
+			++errorChatCount;
+			setTimeout(function(){ 
+				initializeChat(wsUri, user, avatar, schemax);	
+			}, 5000 );
+		}
+		console.log("Error Occurred - "+ev.data);
+	}
+	
+	websocket.onclose 	= function(ev)
+	{
+		console.log("Connection Closed");
+	}; 
+   }catch(ex){}	
+}

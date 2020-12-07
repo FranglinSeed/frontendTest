@@ -1,0 +1,2963 @@
+
+<!-- saved from url=(0080)https://localhost:8443/sunbase/index.jsp?nomenu=1&page=modules/crm/lead_form.jsp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<link rel="stylesheet" type="text/css" href="./list_files/foundation.css">
+<link rel="stylesheet" type="text/css" href="./list_files/notification.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />-->
+<link rel="stylesheet" type="text/css" href="./list_files/bootstrap.css">       
+
+<link rel="stylesheet" type="text/css" href="./list_files/croppie.min.css">
+<link rel="stylesheet" type="text/css" href="./list_files/customize.css">
+<script src="./list_files/croppie.min.js.download"></script>
+<script src="./list_files/html2canvas.min.js.download"></script>
+
+
+  
+  
+ 
+  
+  <style>
+
+.ui-dialog-titlebar {
+    background: teal !important;
+    height: 35px;
+}
+
+#newJob {
+	overflow:hidden;
+}
+.detailForm2 * label {
+    width: unset;
+    font-size: 14px !important;
+	padding-right:5px;
+}
+.ui-dialog-buttonset > button
+{
+    padding: 5px 25px;
+    background: #215ca0;
+	color:white;
+	padding: 6px 30px 25px 25px;
+    font-size: 1em;
+}
+ 
+  .prettyForm * input[type='checkbox'] {
+  position: relative;
+  outline: none !important;
+  width: 30px;
+  height: 25px;
+  transition: .4s;
+}
+ 
+  
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(font/montserrat/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(font/montserrat/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(font/montserrat/JTUSjIg1_i6t8kCHKm459WZhyzbi.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(font/montserrat/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(font/montserrat/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+
+body {
+    font-family: 'Montserrat';font-size: 22px;
+}
+#resetBtn img {
+	margin-top: 4px;
+}
+  
+#advancedSearchForm1 {
+  position:absolute;
+  right:0;
+  height: auto;
+  width: 1px;
+  top:250px;
+  opacity: 0;
+  z-index:0;
+   -moz-transition: background 0.75s linear; /* Firefox 4 */
+    -webkit-transition: background 0.75s linear; /* Safari and Chrome */
+    -o-transition: background 0.75s linear; /* Opera */
+    -ms-transition: background 0.75s linear; /* Explorer 10 */
+	transition: all .75s ease;
+}
+
+#advancedSearchForm1.show {
+  opacity: 1;
+  height: auto;
+  width: 600px;
+  position:absolute;
+  right:0;
+  z-index:600;
+  top:250px;
+  border:1px;
+  border-style:groove;
+  overflow-y:scroll;
+
+}
+
+#advancedSearchForm1 fieldset {
+	background: white;
+	margin-bottom: 0px;
+}
+  
+.blue-btn {
+	background-color: #4DB5F0;
+} 
+.blue-btn-dis {
+	background-color: #8BA8B9;
+} 
+.red-btn {
+	background-color: #F05651;
+} 
+.red-btn-dis {
+	background-color: #A9504D;
+} 
+
+.btn8-dialer {
+    display: block;
+    background: #5cbcf6;
+    outline: 1px solid transparent;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.btn-dialer {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+	min-width:150px;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+img{
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.btnbox {
+    background-color: white; /* blue */
+    border: none;
+    color: #008CBA;
+    padding: 5px 12px;
+	height:80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+input.text { margin-bottom:12px; width:95%; padding: .4em; }
+
+img.action {
+	vertical-align: bottom;
+	height: 15px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+	margin-left: 3px;
+}
+
+fieldset { padding:0; border:0; margin-top:25px; }
+h1 { font-size: 1.2em; margin: .6em 0; }
+div#users-contain { width: 350px; margin: 20px 0; }
+div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+.ui-dialog .ui-state-error { padding: .3em; }
+.validateTips { border: 1px solid transparent; padding: 0.3em; }
+
+
+.badge1 {
+   position:relative;
+}
+.badge1[data-badge]:after {
+   content:attr(data-badge);
+   position:absolute;
+   top:17px;
+   right:-1px;
+   font-size:.7em;
+   background:yellow;
+   color:black;
+   width:18px;height:18px;
+   text-align:center;
+   line-height:18px;
+   font-weight:bold;
+   border-radius:50%;
+   box-shadow:0 0 1px #333;
+}
+.removeFilterButton {
+                background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
+                background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+                background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+                background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+                background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+                background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
+                background-color:#7892c2;
+                border:1px solid #4e6096;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff;
+                padding:0px 8px; 0px 0px;
+
+                text-decoration:none;
+                text-shadow:0px 1px 0px #103db0;
+}
+
+
+
+input[type=currency],input[type=text], textarea
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	-moz-box-shadow: 2px 2px 3px #666;
+
+	font-size: 18px;
+	x-moz-border-radius: 10px;
+	x-webkit-border-radius: 10px;
+	-webkit-appearance: none;
+	padding: 0px 0px 0px 3px;
+
+
+	border: 1px solid #DDDDDD;
+	#box-shadow: 1px 1px 1px #666;
+	
+	
+}
+
+input[type=currency]:focus,input[type=text]:not(.material):focus, textarea:focus
+{
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	padding: 0px 0px 0px 3px;
+	border: 1px solid rgba(81, 203, 238, 1);
+}
+
+select
+{
+}
+
+select:focus
+{
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+#	padding: 0px 7px;
+	border: 1px solid rgba(81, 203, 238, 1);
+}
+table tbody tr td { color: #333; padding: 2px 10px; vertical-align: top; border: none; }
+
+label
+{
+	width: 200px;
+}
+.tab_control {
+	width:100%	; 
+	height:860px
+}
+
+div.grouplistbox{float:left}
+ul.grouplist{float:left;padding:0px;margin:0px;margin-top:2px;border:1px solid #a5acb2;overflow:auto;overflow-x:hidden;overflow-y:auto;width:80%;height:275px;line-height:25px;background-color:white}
+ul.grouplist2 label{display:block;width:100%}
+ul.grouplist label:hover{background-color:#efefef}h1{font-size:25px;line-height:28px}
+ul.grouplist label { padding-right: unset !important; text-align:left !important }
+
+.searchblock{padding-right:20px}
+.nowrap{white-space:nowrap}
+
+.grid-menu a {
+    width: 15%;
+	min-height:125px;
+	min-width:100px;
+    letter-spacing: normal;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    #border-top: 0px solid rgb(212,212,212);
+	#border-bottom: 1px solid rgb(212,212,212);
+    #border-right: 1px solid rgb(212,212,212);
+    padding: 5px;
+  font-size: small;
+  color: #444;
+}
+
+.grid-menu a:hover {
+  background-color: #e6e6ff;
+}
+
+.grid-menu img {
+    width: 25%;
+	min-width: 100px;
+	
+    letter-spacing: normal;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+  font-size: small;
+  color: #444;
+}
+
+
+.detailFS {
+	
+}
+
+.detailForm {
+	width:100%;
+}
+
+.detailForm tr td label {
+	width:225px;
+	font-size: 1rem;
+	font-weight: bold;
+	padding-right: 20px;
+	text-align: right;
+	font-family: Montserrat;
+}		
+		.btn
+		{
+			height: 38px;
+			min-width:50px;
+		}
+
+.ui-tabs-panel { width: calc(100% - 160px) !important; }
+
+
+.gray-sec * .btn { 
+	border:1px solid white !important;
+}
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/material.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+		
+</style>		
+	<link rel="icon" type="image/ico" href="https://localhost:8443/sunbase/favicon.ico">
+	<link rel="stylesheet" href="./list_files/font.awesome.css">
+<link rel="stylesheet" href="./list_files/chat.css">
+<link rel="stylesheet" href="./list_files/std.css">
+<link rel="stylesheet" href="./list_files/jquery.chatjs.css">
+
+
+	
+
+		
+ <link rel="stylesheet" type="text/css" media="all" href="./list_files/nav_filter.css">
+<link rel="stylesheet" type="text/css" href="./list_files/breadcrumbs.css">
+	<script>
+
+var userList = null;
+		var callStack = [];
+		var current_url_Address = "";
+		
+function loadNotificationsHistory()
+{
+	window.open("index.jsp?nomenu=1&page=modules/common/notification_hist_form.jsp").focus();
+}
+		
+
+		function showProfileMenu()
+		{
+			hideQuickAdd();
+			var X=$(this).attr('id');
+			if(X==1)
+			{
+				$(".submenu").hide();
+				$(this).attr('id', '0'); 
+			}
+			else
+			{
+				$(".submenu").show();
+				$(this).attr('id', '1');
+			}
+			
+		}
+	
+		function printScreen()
+		{
+		    html2canvas(document.body, 
+			{
+			  onrendered: function (canvas) {
+				var a = document.createElement('a');
+				// toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+				a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+				a.download = 'screenshot.jpg';
+				a.click();
+			  }
+			});
+		}
+		
+		function captureScreen()
+		{
+		    html2canvas(document.body, 
+			{
+			  onrendered: function (canvas) {
+				var a = document.createElement('a');
+				// toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+				a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+				a.download = 'screenshot.jpg';
+				a.click();
+			  }
+			});
+		}
+
+		function onPostLoad(page)
+		{
+/*			if ( page.indexOf("lead_") != -1 )
+			{
+				$("#favoriteLink").addClass('fa-star')
+				$("#favoriteLink").removeClass('fa-star-o')
+			}
+			else
+			{
+				$("#favoriteLink").addClass('fa-star-o')
+				$("#favoriteLink").removeClass('fa-star')
+			}
+*/			
+		}
+		function dialLeadManual(phone)
+		{
+			if ( typeof dialLeadManualReal === "function" ) {
+				dialLeadManualReal(phone);
+			}
+			else {
+				xdWarn("Dialer must be opened");
+			}
+		}
+		function saveAsFavorite()
+		{
+			if ( document.getElementById("content").style.display != "none" )	
+			{
+				var page = document.getElementById("current_content").value;
+				//console.log("page " + page );
+				if ( page != "" )
+					window.open("index.jsp?page=modules/common/add_favorite.jsp%3Flink=" + escape(page), "Edit" );
+			}			
+			else
+			{
+				xdWarn("Can not add menu to favorite");
+			}
+		}		
+
+		function setQType(type)
+		{
+			document.getElementById('qsearchType').innerHTML="<img style='width:32px' src='img/" + type + "'/>"			
+			$('#qsearchTypeType').hide();
+		}
+		function checkAppts()
+		{
+			setTimeout(checkAppts, 60000 * 15);
+
+			var url = 'portal/api/appt_reminders_cmd.jsp?token=sz6hjZjvOsX3d4BWGKF9ZEV4I0cw26yv6nDTowsYk%2FIKLCY9CtDsfMekQ243nGrRZr%2F9aKONvBO0%0D%0As6p7iRckDg%3D%3D';
+			fetch(url).then(function(response) 
+			{
+			  return response.text();
+			}).then(function(data) {
+					console.log("Count " + data );
+					if ( data.indexOf("count=") != -1 )
+					{
+						data= data.substring( "count=".length ).trim();
+						setNotifyCount( parseInt(data) );
+					}
+			}).catch(function() {
+			  console.log("Error check appts");
+			});
+/*
+			$.ajax({
+				url: "modules/common/appt_reminders_cmd.jsp",
+				type: "POST",
+				dataType : 'text',
+			 
+				success: function( response ) {
+					if ( response != null && response.indexOf("1") != -1 )
+					{
+						xdInfo("Appointment comming up, click on notification to see it");
+						setTimeout( recount, 200 );
+					}
+				}			 
+			});    
+*/
+			//appt_reminders_cmd.jsp
+		}
+		
+		function addHistory(path)
+		{
+			current_url_Address = path;
+			callStack.push(path);
+			if ( callStack.length > 50 )
+			{
+				callStack.shift();
+			}
+			history.pushState(path, null, null);
+		}
+		function stepBack()
+		{
+			if ( document.getElementById("content").style.display == "none" )	
+			{
+				returnToMain();
+			}
+			else
+			{
+				var url = ( callStack.length > 0 ? callStack.pop() : null );
+				if ( url == current_url_Address )
+				{
+					url = ( callStack.length > 0 ? callStack.pop() : null );
+				}
+				if ( url == null )
+					loadMobileMenu();
+				else
+				{
+					spaNavigatePageNoHistory(url);
+				}
+			}
+		}
+
+		function checkQuickSearchEnter(e)
+		{ //e is event object passed from function invocation
+			var characterCode; //literal character code will be stored in this variable
+
+			$('#qsearchTypeType').hide();
+			if(e && e.which){ //if which property of event object is supported (NN4)
+				e = e;
+				characterCode = e.which; //character code is contained in NN4's which property
+			}
+			else
+			{
+				e = event;
+				characterCode = e.keyCode; //character code is contained in IE's keyCode property
+			}
+
+			if(characterCode == 13)
+			{ //if generated character code is equal to ascii 13 (if enter key)
+		
+		
+				if ( document.getElementById('qsearchType').innerHTML.indexOf('img/customer.png') !== -1 )
+					navigateMenuItem('modules/crm/allcustomers_form.jsp?quick=' + document.getElementById('searchTextBox').value );
+				else
+					navigateMenuItem('modules/dispatch/servicecall_form.jsp?quick=' + document.getElementById('searchTextBox').value );
+				return false;
+			}
+			else
+			{
+				return true
+			}
+		}
+
+		function xdError(msg)
+		{
+			$.growl.error({ message: msg});
+		}
+		function xdInfo(msg)
+		{
+			$.growl.notice({ message: msg});
+		}
+		function xdWarn(msg)
+		{
+			$.growl.warning({ message: msg });
+		}
+		function xdConfirm(msg)
+		{
+			var statesdemo = {
+				state0: {
+					html:html,
+					title: msg,
+					buttons: { "Confirm": true, "Cancel": false },
+					submit:function(e,v,m,f){ 
+							return ( v == true )			
+					}// end of submit
+				  }
+			}
+			if ( statesdemo != null )
+				$.prompt(statesdemo);
+		}
+		function editLookup(type, look)
+		{
+			if ( type == 'lookup_names' )
+			{
+				window.open( "/sunbase/index.jsp?nomenu=1&page=/modules/zadmin/lookup_names_form.jsp" );
+			}
+			else if ( type == 'lookup' )
+			{
+				// open edit window.
+				if ( look == '' )
+				{
+					$.growl.error({ message: "Sorry this is a hard coded list" });
+				}
+				else
+				{
+					window.open( "/sunbase/index.jsp?nomenu=1&page=modules/zadmin/lookup_codes_form.jsp%3Fname_code=" + look );
+				}
+			}
+			else if ( type == 'payee' )
+			{
+				// open edit window.
+				window.open("/sunbase/index.jsp?nomenu=1&page=modules/invoice/payee_form.jsp" );
+			}
+			else if ( type == 'event' )
+			{
+				// open edit window.
+				window.open("/sunbase/index.jsp?nomenu=1&page=modules//marketing/event_form.jsp" );
+			}
+			else
+			{
+				$.growl.error({ message: "Unknown edit type " + look + " " + type });
+			}
+		}
+
+		window.onbeforeunload = function() {
+			if ( typeof onBeforeUnload === "function" )
+			{
+				onBeforeUnload();
+			}
+//			return "Clicking refresh on the browser will take you back to the main screen, use the refresh button instead";
+		}
+		
+		
+		addHistory("");
+		window.addEventListener('popstate', function(e) {
+			var location = e.state;
+			console.log("loc " + location );
+			if ( location != null && location.length > 0 )
+			{
+				spaNavigatePageNoHistory(location);
+			}
+			else
+			{
+				addHistory("");
+				if ( document.getElementById("content").style.display == "none" )	
+				{
+					returnToMain();
+				}
+				else if ( window.location.href.indexOf("nomenu=") == -1 )
+					loadMobileMenu();
+
+//				if ( confirm("Are you sure you want to exit the application") )
+//					window.history.back();
+			}
+		});
+		
+	function closeTabWindow()
+	{
+		window.close();
+
+	}		
+	
+	function flexReloadList(name)
+	{
+		$('.' + name ).flexReload();
+	}
+	
+	var showSavePin = false;
+	var pins = new Array();
+	
+	function savePin(pinName, pinImage, pinTooltip)
+	{
+		removePinForce(pinName);
+		var pin = { name: pinName, tooltip: pinTooltip, image: pinImage }
+		
+		showSavePin = true;
+		pins.push( pin );
+		renderPins();
+	}
+	
+	function removePin(pinName)
+	{
+		$.prompt("Are you sure you want to remove this shortcut?", {
+			title: "Confirm Shortcut Removal",
+			buttons: { "Yes": true, "No": false },
+			submit: function(e,v,m,f){
+				if ( v == true )
+				{
+					removePinForce(pinName);
+					showSavePin = true;									
+					renderPins();
+				}
+			}							
+		});											
+	}	
+	function removePinForce(pinName)
+	{
+		for ( var i = pins.length-1; i >= 0; --i )
+		{
+			if ( pins[i]['name'] == pinName )
+			{
+				pins.splice(i,1);
+				showSavePin = true;									
+				renderPins();
+			}
+		}
+	}
+	
+	function savePinData()
+	{
+		cmd = ( pins.length == 0 ? "delete" : "save");
+		$.ajax({
+			url: "modules/common/save_pins.jsp?cmd=" + cmd + "&data=" + escape(JSON.stringify( pins )),
+			type: "POST",
+			dataType : 'text',
+		 
+			success: function( response ) {
+				showSavePin = false;
+				renderPins();
+			}			 
+		});    		
+	}
+	function renderPins()
+	{
+		if ( pins == null || pins.length == 0 )
+		{
+			document.getElementById('pinBox').style.height = '0px';
+		}
+		else
+			document.getElementById('pinBox').style.height = '30px';
+		var data = '';
+		for ( var i = 0; i < pins.length; ++i )
+		{
+			data += "<a href='#' onContextMenu=\"removePin('" + pins[i].name + "'); return false;\" onclick=\"invokePin('" + pins[i].name + "'); return false;\"><img title='" + pins[i].tooltip + "' width='30px' src='" + pins[i].image + "'/></a>";
+		}		
+		
+		if ( showSavePin )
+			data += "<a style='float:right' href='#' onclick=\"savePinData(); return false;\"><img title='Save shortcut data' width='30px' src='img/save.jpg'/></a>";
+		document.getElementById('pinBox').innerHTML = data;
+	}
+	
+	function invokePin(name)
+	{
+		var img = document.getElementById(name);
+		if ( img != null )
+			img.click();
+		else
+		{
+			$.prompt("Shortcut does not exist anymore should we remove and save shortcuts?", {
+				title: "Confirm",
+				buttons: { "Yes": true, "No": false },
+				submit: function(e,v,m,f){
+					if ( v == true )
+					{
+						removePinForce(name);
+						savePinData();
+						showSavePin = false;
+					}
+				}							
+			});											
+		}
+	}
+
+	function loadEmailTemplateText()
+	{
+		var select = document.getElementById('emailTemplate');
+		if ( select.value.trim() !== '' )
+		{
+			// get the content
+			$.ajax({
+				url: "modules/plugins/webmail/email_template.jsp?cmd=template_text&key=" + select.value,
+				type: "POST",
+				dataType : 'text',
+			 
+				success: function( response ) {
+					document.getElementById('msgbody').innerHTML = response;
+				}			 
+			});    
+		}		
+	}
+	function loadEmailTemplates(name)
+	{
+		var select = document.getElementById(name);
+		if ( select.options.length === 0 )
+		{
+			// fetch the list
+			$.ajax({
+				url: "modules/plugins/webmail/email_template.jsp?cmd=list_templates",
+				type: "POST",
+				dataType : 'text',
+			 
+				success: function( response ) {
+					
+					var opt = document.createElement('option');
+					opt.value = "";
+					opt.innerHTML = "";
+					select.appendChild(opt);
+					
+					var split = response.split('~');
+					for ( var i = 0; i < split.length; ++i ) {
+						var parts = split[i].split('=');
+						if ( parts.length === 2 ) {
+							opt = document.createElement('option');
+							opt.value = parts[0];
+							opt.innerHTML = parts[1];
+							select.appendChild(opt);
+						}
+					}
+				}			 
+			});    
+		}
+	}
+	
+	</script>
+	
+
+<title>SUNBASE - solar</title><title>SUNBASE - solar</title><link rel="icon" type="image/ico" href="https://localhost:8443/sunbase/favicon.ico"><script type="text/javascript" src="./list_files/jquery-1.10.2.js.download"></script><link rel="stylesheet" type="text/css" href="./list_files/foundation.css"><link rel="stylesheet" type="text/css" media="all" href="./list_files/submit.css"><style>
+	
+	
+.multiselect {
+    width:500px;
+    height:15em;
+    border:solid 1px #c0c0c0;
+	background-color: #ffffff;
+    overflow:auto;
+	white-space: nowrap;
+	overflow-x:scroll ;
+}
+ 
+.multiselect label {
+    display:block;
+}
+ 
+.multiselect-on {
+    color:#ffffff;
+    background-color:#000099;
+}	
+	
+.2submit
+{		
+    background-color: #0000FF;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#3399FF), to(#0000FF));
+    background-image: -webkit-linear-gradient(top, #3399FF, #0000FF);
+    background-image: -moz-linear-gradient(top, #3399FF, #0000FF);
+    background-image: -ms-linear-gradient(top, #3399FF, #0000FF);
+    background-image: -o-linear-gradient(top, #3399FF, #0000FF);
+    background-image: linear-gradient(top, #3399FF, #0000FF);
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+    
+    #float: left;
+    height: 35px;
+    padding: 0;
+    width: 180px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #FFF;
+}
+
+.2submit:hover,#submit:focus,#submit:active
+{		
+    background-color: #fddb6f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
+    background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -moz-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -ms-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -o-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: linear-gradient(top, #ffb94b, #fddb6f);
+}	
+
+.2submit:active
+{		
+#    outline: none;
+   
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+
+
+    /***FIRST STYLE THE BUTTON***/
+   .submit,#submit{
+    cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+    padding:5px 25px; /*add some padding to the inside of the button*/
+    background:#215ca0; /*the colour of the button*/
+    /*give the button curved corners, alter the size as required*/
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    /*give the button a drop shadow*/
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    box-shadow: 0 0 4px rgba(0,0,0, .75);
+    /*style the text*/
+    color:#f3f3f3;
+    font-size:1em;
+    }
+    /***NOW STYLE THE BUTTON'S HOVER AND FOCUS STATES***/
+    .submit:hover, .submit:focus{
+    background-color :#0029A3; /*make the background a little darker*/
+    /*reduce the drop shadow size to give a pushed button effect*/
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+    box-shadow: 0 0 1px rgba(0,0,0, .75);
+    }
+
+#advancedBtn, #resetAdvancedBtn {
+   background-color: #005fb2;
+    color: white;
+    border: 0px;
+}
+
+.submit2::-moz-focus-inner
+{
+  border: none;
+}
+
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	color:	#342D7E;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+
+a:link {text-decoration: none;} //the original link with no underline
+a:visited {text-decoration: none;} //the visited link with no underline
+a:hover {text-decoration: underline;} //mouseover link and an underline appears
+
+
+html {
+overflow: -moz-scrollbars-vertical; 
+overflow-y: scroll;
+}
+		
+body{font-family:Verdana,Arial,Helvetica;font-size:12px;color:black;margin:0px;padding:10px;padding-top:5px}
+#languages{color:white;font-size:10px;text-align:right;padding-bottom:5px}#languages ul{list-style:none;padding:0px;margin:0px}
+#languages li{display:inline;margin-left:30px;margin-right:10px}#languages a:link,#languages a:visited{color:white;text-decoration:none}
+#languages a:hover,#languages a:active{color:white;text-decoration:underline}#container{background-color:white;background:#fff;min-width:800px;width:auto !important}
+#glass{position:absolute;top:20px;left:0px;z-index:10}
+#header{height:70px;padding:0px;margin:10px;margin-bottom:30px;color:white;font-weight:bold;background-color:#11386d;background:#11386d;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:right -70px}
+#header .corner{height:70px;width:20px;padding:0px;margin:0px;float:left;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:top left}
+#header #logo{position:absolute;top:51px;left:120px;width:280px;height:32px;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:0px -210px;cursor:pointer}
+#header #menu{float:right}
+#header #menu .search{width:16px;height:16px;display:inline-block;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:0px -242px;cursor:pointer}
+#header #menu .forum{width:16px;height:16px;display:inline-block;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:0px -258px;cursor:pointer}
+#header #menu .groups{width:16px;height:16px;display:inline-block;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:0px -274px;cursor:pointer}
+#header #menu .help{width:16px;height:16px;display:inline-block;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:0px -290px;cursor:pointer}
+
+#header table{width:90%;height:60px}
+#header td.bottom{vertical-align:bottom}
+#header ul{list-style:none;padding:0px;margin:0px;margin-top:45px;white-space:nowrap}
+#header li{display:inline;margin-left:20px;margin-right:20px;white-space:nowrap}#header a:link,
+#header a:visited{color:white;text-decoration:none}#header a:hover,#header a:active{color:yellow;text-decoration:none}
+#main{margin:0px;color:black;background-color:white;background:#fff;line-height:19px;width:99%;min-height:800px;height:auto !important;  height:800px}
+#search{margin:10px;margin-bottom:30px}
+
+#search #advanced{margin-top:10px}#template{margin:0px}#text,#nieuws,#termcloud{margin-left:10px;margin-right:10px}
+#helpicon{width:16px;height:16px;display:inline-block;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:0px -290px;cursor:pointer}
+#rssicon{width:16px;height:16px;display:inline-block;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:0px -306px;cursor:pointer}#nieuws td{width:50%}#nieuws .nieuwstekst{border-top:1px dotted #808080;margin-bottom:20px;text-align:justify}#results{margin-top:20px;margin-bottom:50px}#results table{width:100%}#results thead td{padding-bottom:5px}#results thead tr.line td{border-bottom:1px solid gray}#results thead a{text-decoration:none}#results tfoot td{padding-top:5px}#results tfoot tr.line td{border-top:1px solid gray}#results tfoot a{text-decoration:none}#results tbody tr.odd{background-color:#edf5ff}#results tbody tr.even{}#results tbody tr:hover,#results tbody tr.odd:hover,#results tbody tr.even:hover{background-color:#ebebeb}#results td{padding-left:10px;padding-right:10px}#results td.firstcolumn{padding-left:10px;padding-right:0px}#results .sizeblock{width:15px;height:10px;-moz-border-radius:2px;border-radius:2px;background-color:gray;margin-left:2px;float:right}#results h1{font-size:30px;line-height:35px;margin-left:10px}#results h2{font-size:16px;line-height:20px;display:inline}#results .referral{height:200px;overflow:hidden;overflow-y:auto;margin-bottom:1px}#results a.group{text-decoration:none;color:black}#results a.group:hover,#results a.group:active{text-decoration:underline}#nfos{font-family:Courier New,Courier,monospace;font-size:13px;color:black;line-height:15px}#nfos pre{white-space:pre-wrap; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word}#nfos .highlight{font-weight:inherit;background-color:yellow}#vote #form{text-align:center}#vote h2{margin-top:0px;margin-bottom:20px}#permalink ul{padding:10px;margin:10px;margin-top:0px;padding-top:0px}#termcloud{line-height:20px;text-align:center;width:600px;margin:0 auto;padding-top:30px;padding-bottom:20px}#termcloudnieuwsbericht{line-height:20px;text-align:center;margin:0 auto;padding-top:0px;padding-bottom:20px}#termcloud span,#termcloudnieuwsbericht span{margin-left:1px;margin-right:1px}#termcloud a:hover,#termcloud a:active,#termcloudnieuwsbericht a:hover,#termcloudnieuwsbericht a:active{text-decoration:underline}.question h3{margin-bottom:5px;padding-bottom:0px}.question{margin-bottom:30px}.quote{background-color:#dedede;padding:10px}#bottom{height:35px;padding:0px;margin:10px;background-color:#0b2e64;background:#0b2e64;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:left -175px;color:white}#bottom .corner{height:35px;width:20px;padding:0px;margin:0px;float:right;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:right -140px}#disclaimer{padding:10px;padding-left:20px}#disclaimer a:link,#disclaimer a:visited{color:white;text-decoration:none}#disclaimer a:hover,#disclaimer a:active{color:yellow;text-decoration:none}a:link,a:visited{color:#003CAB;text-decoration:none}a:hover,a:active{color:#003CAB;text-decoration:none}.nounderline a:link,.nounderline a:visited{text-decoration:none}.nounderline a:hover,.nounderline a:active{text-decoration:none}p{margin:0px;margin-bottom:10px}table{font-size:12px;border:0px;border-collapse:collapse}td{vertical-align:top}img{border:0px}form{padding:0px;margin:0px}select{padding:1px}label{cursor:pointer}label.error{width:16px;height:16px;display:inline-block;background-image:url('../images/images.gif');background-repeat:no-repeat;background-position:0px -322px;margin-left:5px;cursor:auto}fieldset{margin-bottom:10px;padding:10px;-moz-border-radius:3px}
+
+
+
+fieldset.searchform{margin:0 auto;width:90%;background-color:#efefef}legend{padding-left:10px;padding-right:10px}
+
+
+</style><script>
+
+	function enter_pressed()
+	{
+		if(event.keyCode == 13){
+			document.getElementById("searchbtn").click();
+		}
+	}
+		
+	function httpSend(url)
+	{
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.open("GET",url, false );
+		//+"?t=" + Math.random(),true);
+		xmlhttp.send();
+		
+		return xmlhttp.responseText;
+		
+	}
+
+	function callServer(url)
+	{
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.open("GET",url, false );
+		//+"?t=" + Math.random(),true);
+		xmlhttp.send();
+		
+		return xmlhttp.responseText;
+		
+	}
+
+	
+	</script></head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+	
+	
+		<body style="cursor: default;"><div id="main" style="override-x: hidden;">		
+		<div id="search">
+
+
+
+
+<!-- Right panel -->
+<!--<script src="/sunbase/js/jquery.panelslider.min.js"></script> 
+<script>
+    $('#left-panel-link').panelslider();
+
+    $('#close-panel-bt').click(function() {
+      $.panelslider.close();
+	  //window.location = 'index.jsp';
+    });
+  </script>
+-->
+
+<script src="./list_files/jquery.growl.js.download" type="text/javascript"></script>
+<link href="./list_files/jquery.growl.css" rel="stylesheet" type="text/css">
+
+
+
+<script src="./list_files/jquery-ui-1.10.4.custom.js.download"></script>
+<script src="./list_files/spa.js.download"></script>
+<script async="" src="./list_files/chat.js.download"></script>
+<link href="./list_files/overlay.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./list_files/loadingoverlay_progress.min.js.download"></script>
+
+<link rel="stylesheet" href="./list_files/chosen.css">
+
+<script src="./list_files/chosen.jquery.js.download" type="text/javascript"></script>
+<link href="./list_files/bootstrap-suggest.css" rel="stylesheet">
+<script src="./list_files/bootstrap-suggest.min.js.download"></script>  
+
+
+
+
+<script>
+function loadCities(id)
+{
+/*	var selectBox = document.getElementById("city");
+	var state = document.getElementById("state");
+	
+	if ( state.value != selectBox['state-data'] )
+	{
+		console.log("Would load cities");
+		selectBox['state-data'] = state.value;
+	}
+	else
+		console.log("Already loaded ");
+
+	// get state and county lets load the cities
+*/	
+}
+
+function addItemToSelect(selectId, value)
+{
+//	console.log("Add item " + selectId + "," + value );
+	var select= document.getElementById(selectId)
+	var opt = document.createElement('option');
+    opt.value = value;
+    opt.innerHTML = value;
+    select.appendChild(opt);
+	
+	var idx = findIndexSelect(selectId, value);
+	if ( idx > 0 )
+		select.selectedIndex = idx;
+}
+
+function findIndexSelect(selectId, value)
+{
+	var options= document.getElementById(selectId).options;
+	if ( options === undefined )
+	{
+		document.getElementById(selectId).value = value;
+	}
+	else
+	{
+		for (var i= 0; i < options.length; i++) 
+		{
+			if (options[i].value===value) {
+				return i;
+			}
+		}
+	}
+	return -1;
+}
+
+function stateChanged(stateCode)
+{
+	var countyEntry = document.getElementById("county");
+	var stateEntry = document.getElementById("state");
+
+// if there is already a county dont search it	
+	var countyValue = countyEntry.value.trim();
+	if ( countyValue === 'all' )
+		countyValue = "";
+	if  ( stateEntry === undefined && countyEntry === undefined && stateEntry.value.trim() == "" || countyValue !== "")
+	{
+		// nothing to search
+		return;
+	}
+	
+	if ( countyEntry != null )
+		countyEntry.innerHTML = "";
+	addItemToSelect("county", "all" );
+	
+	$.ajax({
+		type: "GET",
+		url: "modules/common/zip_cmd.jsp",
+		data: "cmd=county_lookup&state=" + stateEntry.value.trim(),
+
+		success: function (data) {
+			data = data.trim();
+			var results = JSON.parse( data );
+			for ( var i = 0; i < results.length; ++i )
+			{
+				if ( results[i].length > 0 )
+					addItemToSelect("county", results[i] );
+			}
+			
+			if ( countyEntry != null )
+				countyEntry.selectedIndex = 0;
+
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			console.log( textStatus );
+		}
+	});
+
+}
+function loadCounties()
+{
+	var countyEntry = document.getElementById("county");
+	var stateEntry = document.getElementById("state");
+	var cityList = document.getElementById("city");
+	var countyValue = countyEntry.value.trim();
+	if ( countyValue === 'all' )
+		countyValue = "";
+	console.log("Load counties " + countyValue + "," + stateEntry.value + "," + cityList.value );
+	if  ( (stateEntry.value.trim() == "" || countyValue === "") && (cityList.value.trim() !== "" || cityList.value.trim() === "all") )
+	{
+		// nothing to search
+			console.log("exit");
+		return;
+	}
+	
+	if ( cityList != null )
+		cityList.innerHTML = "";
+	
+	$.ajax({
+		type: "GET",
+		url: "modules/common/zip_cmd.jsp",
+		data: "cmd=city_lookup&state=" + stateEntry.value.trim() + "&county=" + countyEntry.value.trim(),
+
+		success: function (data) {
+			data = data.trim();
+			var results = JSON.parse( data );
+			addItemToSelect("city", "all" );
+			for ( var i = 0; i < results.length; ++i )
+			{
+				addItemToSelect("city", results[i] );
+			}
+			if ( cityList != null )
+				cityList.selectedIndex = 0;
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			console.log( textStatus );
+		}
+	});
+}
+
+var prettyMode = false;
+
+</script>
+
+<script type="text/javascript" src="./list_files/bootstrap.min.js.download"></script>
+<!--<script src="js/chat.js"></script>-->
+<link href="./list_files/fancystyle.css" rel="stylesheet">
+<script src="./list_files/notification.js.download"></script>
+
+  
+	<script async="" src="./list_files/materialize2.js.download"></script>
+
+  
+<!-------->
+<script type="text/javascript" src="./list_files/jquery-impromptu.js.download"></script>
+   <script src="./list_files/datepicker.js.download"></script>
+  <script type="text/javascript" src="./list_files/flexigrid.pack.js"></script>
+<script src="./list_files/datetimepicker.js.download"></script>
+
+
+ <link rel="stylesheet" type="text/css" href="./list_files/flexigrid.pack.css">       
+
+ <link rel="stylesheet" media="all" type="text/css" href="./list_files/jquery-impromptu.css">
+<link rel="stylesheet" type="text/css" href="./list_files/datepicker.css">
+ <link rel="stylesheet" type="text/css" media="all" href="./list_files/niceforms-default.css">
+
+ 	<style>
+
+.dollar{
+	display:inline-block;
+	position: relative;
+	}
+.dollar input{
+	margin-left:5px;
+	padding-left:11px !important;
+	}
+.dollar:before {
+	position: absolute;
+    content:"$";
+	font-size:13px;
+	font:13px !important;
+    left:5px;
+	top:2px;
+ 	}
+
+.prettyForm * label {
+	font-size:14px !important;
+}
+.prettyForm * input[type=text], .prettyForm * input[type=number], .prettyForm * input[type=currency], .prettyForm * input[type=date], .prettyForm * select {
+    overflow: hidden;
+    height: 27px;
+    border: 1px solid #e2dfdf;
+    border-radius: 5px;
+    background-color: #fff;
+    background-clip: padding-box;
+    box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #444;
+    text-decoration: none;
+    white-space: nowrap;
+	font-size:13px;
+	font:13px !important;
+    line-height: 24px;
+}
+</style>
+ 
+  <link rel="stylesheet" type="text/css" media="all" href="./list_files/flexgrid_controls.css">
+
+<link href="./list_files/datasourcestyle.css" rel="stylesheet">
+<link href="./list_files/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+<!-------->	
+
+<script>
+function reloginApp()
+{
+	
+	var user = '';
+	var pass = '';
+	
+	var contextName = '/sunbase';
+	if ( contextName == 'salesmachine' )
+		contextName = 'sales_machine';
+	
+	var x = getCookie('sunbasedata_');
+	if ( x === null || x === '' || x.indexOf('|') == -1 )
+	{
+		x = getCookie(contextName);
+	}
+	if ( x != "" )
+	{
+		var data = x.split("|");
+		if ( data.length >= 2 )
+		{
+			user = data[0];
+			pass = data[1];
+		}
+	}
+	
+	var html = "<img width='20px' src='img/lock.png'/> <b style='color:green;font-size: 24px;'>Just to be safe, we logged you out.</b><br/><br/>Enter your password to pick up where you left off. </center><br/><br/><label style='width:70px'>Current user: </label><input id='username' name='username' value='" + user + "'/><br/><br/><label style='width:70px'>Password: </label><input type='password' placeholder='Password' id='password' name='password' value='" + pass + "'/>";
+
+	var statesdemo = {
+	state0: {
+		html:html,
+		title: "Session Timeout.  Relogin",
+		buttons: { "Login": 1, "Cancel": -1 },
+		focus: "input[name='username']",
+		submit:function(e,v,m,f){ 
+			if ( v !== -1 && (f.username === '' || f.password === '' || f.username.indexOf('@') == -1 ) )
+			{
+				e.preventDefault(); 
+				return false;
+			}
+			else if ( v == 1 )			
+			{
+				$.ajax({
+					type: "GET",
+					url: "login_cmd.jsp?cmd=login",
+					data: f,
+					success: function (data) {
+						if ( data.indexOf("uccess") !== -1 )
+						{
+							xdInfo("Reconnected");
+							if ( $('.content').html().indexOf("img/spinning.gif") !== -1 )
+								spaRefreshNavigatePage();
+						}
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						console.log( textStatus );
+					}
+				});
+			}
+		}// end of submit
+	  }
+	}
+
+	if ( statesdemo != null )
+		$.prompt(statesdemo);
+}
+
+</script>
+
+
+
+<link rel="stylesheet" href="./list_files/signaturepad.jquery.css">
+<script src="./list_files/jquery.signaturepad.min.js.download"></script> 
+<script src="./list_files/base_edit.js.download"></script>
+
+<script src="./list_files/jquery.growl.js.download" type="text/javascript"></script>
+<link href="./list_files/jquery.growl.css" rel="stylesheet" type="text/css">
+
+
+
+<input id="mylat" type="hidden" value="0">
+<input id="mylon" type="hidden" value="0"> 
+<input id="myspeed" type="hidden" value="0"> 
+<input id="myheading" type="hidden" value="0"> 
+<input id="myaccur" type="hidden" value="0"> 
+<input id="mylastgpstime" type="hidden" value="0"> 
+<script>
+
+var gpsPeriod = 0;
+
+
+
+var config = {
+  '.chosen-select'           : {},
+  '.chosen-select-deselect'  : { allow_single_deselect: true },
+  '.chosen-select-no-single' : { disable_search_threshold: 10 },
+  '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+  '.chosen-select-rtl'       : { rtl: true },
+  '.chosen-select-width'     : { width: '95%' }
+}
+function initSelectChoice(id) // '#form1 select'
+{
+
+}
+
+function showMobileMenu()
+{
+	document.getElementById("content").style.display == 'block';
+	loadMobileMenu();
+	document.getElementById('mobilemenu_page').style.display='block';	
+	returnToMain();
+}
+
+function returnToMain()
+{
+	if ( document.getElementById("mainx").style.display != "block" )
+	{
+		var x = document.getElementsByClassName("grid-menu");
+		var i;
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		document.getElementById("about-menu").style.display = 'none';
+		document.getElementById("logoff-menu").style.display = 'none';
+		
+		document.getElementById("mainx").style.display = 'block';
+	}
+}
+
+
+function resetToMobileMenu()
+{
+	var menuPage = document.getElementById('mobilemenu_page');	
+	var menudiv = document.getElementById('mobilemenu_details');	
+	document.getElementById("content").style.display = "none";	
+	menuPage.style.display = "block";
+}
+
+function loadMobileMenu()
+{	
+	
+
+//spaNavigatePage("mobile/modules/common/menu_details.jsp");
+	var menuPage = document.getElementById('mobilemenu_page');	
+	var menudiv = document.getElementById('mobilemenu_details');	
+	
+
+	if ( menudiv != null && menudiv.innerHTML == "" )
+	{  // load it
+			$.ajax({
+				url: "full_menu_details.jsp",
+				type: "GET",
+				dataType : 'text',
+			 
+				success: function( response ) {
+					
+					menudiv.innerHTML = response;
+					document.getElementById("content").style.display = "none";	
+					menuPage.style.display = "block";
+					document.getElementById("content").innerHTML = "";
+					
+					
+				}			 
+			});    
+
+	}
+	else
+	{
+		if ( document.getElementById("content").style.display == 'block' )
+		{
+			document.getElementById("content").style.display = "none";	
+			menuPage.style.display = "block";
+		}
+		else if ( document.getElementById("content").innerHTML != "" )
+		{
+			document.getElementById("content").style.display = "block";	
+			menuPage.style.display = "none";			
+		}
+	}
+	
+}
+
+function hideQuickAdd()
+{
+	$('.addSubmenu').removeClass('show');
+}
+function toggleQuickAdd()
+{
+	
+
+	$('.addSubmenu').toggleClass('show');
+	
+}
+
+function navigateMenuItem(ur)
+{
+	hideQuickAdd();
+	hideNavMenu();
+//	console.log("Hide menu open main");
+	spaNavigatePage(ur);
+}
+function hideNavMenu()
+{
+	document.getElementById('mobilemenu_page').style.display = "none";
+	document.getElementById('content').style.display = "block";
+}
+function showMenu(id, newmenu)
+{
+	if ( document.getElementById(id.trim()) == null )
+			console.log("Unable to find " + id );
+	if ( document.getElementById(newmenu.trim()) == null )
+			console.log("Unable to find [" + newmenu.trim() + "]");
+
+console.log("Show menu " + id + " " + newmenu );		
+   if ( id != null )
+	   document.getElementById(id.trim()).style.display='none';
+   document.getElementById(newmenu.trim()).style.display='block';
+}
+
+function openHelp()
+{
+	window.open('help/help.jsp?page=' + current_url_Address ).focus();
+}
+
+
+function toggleQuickSearch()
+{
+	
+		var q = document.getElementById("quickMenuSearchPanel");
+		q.style.display = ( q.style.display == 'block' ? 'none' : 'block' );
+		document.getElementById('searchTextBox').focus();
+	
+}
+</script>
+<script type="text/javascript" src="./list_files/gps_location.js.download"></script>
+
+<input type="hidden" id="current_content" value="/sunbase/modules/crm/lead_form.jsp">
+
+
+
+
+</div>
+
+<div class="chat-window" id="chat-window" style="right: 10px;display: none;">
+	<div class="chat-window-title">
+		<div class="text">Team 
+		<img title="Close" src="./list_files/close3.png" width="16" height="16" style="margin-left:10px; float:right" onclick="toggleChat();return false;">
+		<img style="float:right" onclick="reloadChatList(); return false;" src="./list_files/refresh.png" width="16" height="16">
+		                       </div>
+	</div>
+	<div id="chat-window-content" class="chat-window-content" style="height: 400px; display: block;">
+		<div class="chat-window-inner-content user-list" style="height: 100%">
+			<div id="chat-user-list" class="user-list-item" data-val-id="2">BLANK</div>			
+		</div>
+	</div>
+</div>
+
+<div id="notificationContainer" style="display:none">
+	<input type="hidden" id="notificationPage" value="1">
+	<div id="notificationTitle">Notifications <div id="notificationActions" style="float:right">
+<img title="Add notification" src="./list_files/add.png" onclick="createNotification(escape(&quot;SunbaseData Admin&quot;), &quot;71590418a3cc43b0b4fc29f5e86d6868&quot;, &quot;blank.png&quot;, &quot;&quot;)">
+                     
+			&nbsp;&nbsp;&nbsp;
+			<img title="Delete all" src="./list_files/delete.png" width="16" height="16" style="margin-right:10px" onclick="clearAllNotifications();return false;">
+
+			<img title="Refresh" src="./list_files/refresh.png" onclick="refreshNotifications(1);return false;">
+			<img title="Close" src="./list_files/close3.png" width="16" height="16" style="margin-left:10px" onclick="toggleNotifications();return false;">
+	</div> </div>
+	<div id="notificationsBody" class="notifications"></div>
+	<div id="notificationFooter"><a href="https://localhost:8443/sunbase/index.jsp?nomenu=1&amp;page=modules/crm/lead_form.jsp#" onclick="loadMoreNotifications(); return false">See More</a>  | <a href="https://localhost:8443/sunbase/index.jsp?nomenu=1&amp;page=modules/crm/lead_form.jsp#" onclick="loadNotificationsHistory(); return false">Sent History</a></div>
+</div>
+
+	<div id="mobilemenu_page" style="display: none">
+	<div id="mobilemenu_details" style="min-height:400px"></div>
+	<div style="margin-top:200px">You can right click to create a shortcut
+<br> <a href="https://localhost:8443/sunbase/index.jsp?nomenu=1&amp;page=modules/crm/lead_form.jsp#" onclick="window.location.href=&quot;index4.jsp&quot;; return false;">Try a new navigation mode</a>
+		<div style="float:right">	
+			<img width="200" height="50" src="./list_files/logo.png">
+		</div>
+	</div>
+
+
+	<div id="fastmenu" style="display: none"></div>
+	</div>
+
+	<br>
+
+	<div class="content" id="content" style="display: block">
+
+<script>
+function selectAll() 
+{
+	var dates = document.querySelectorAll('*[id^="cb_"]');
+	for ( i = 0; i < dates.length; ++i )
+	{
+		var d = dates[i];
+		d.checked = !d.checked;
+	}
+}
+
+function dialerStart(com, g, p, grid)
+{
+	var group_ids = "";
+
+	var selc = $('tr', grid);
+	for ( var i = 1; i <= selc.length; ++i )
+	{
+		var row = selc[i];
+
+		var id = $('td:eq(0)', row).text();
+		//var selectedFlag = $('td:eq(1)', row).text();
+		if ( id != "" )
+		{
+			var selectedFlag = document.getElementById("cb_" + id );
+			if ( selectedFlag != null )
+			{
+				if ( selectedFlag.checked == true )
+				{
+					group_ids += id + ";";
+				}
+			}
+		}						
+	}
+	
+	if ( group_ids != "" )
+	{
+		$.ajax({
+			type: "POST",
+			url: '/sunbase/modules/plugins/integrations/phone_burner_api.jsp',
+			data: 'cmd=create&ids=' + escape(group_ids),
+			success: function (data) {
+				data = data.trim();
+				if ( data.indexOf("http") != -1 )
+				{
+					window.open( data, "Dialer").focus();
+				}
+				else
+					xdError( data );
+			}
+		});
+	}					
+}
+
+
+function applyGroup()
+{
+	spaNavigatePage("modules/crm/opportunity_form.jsp?filter=1&filterType=null&group=" + document.getElementById("grouping").value);
+}
+
+function logAction(action, uuid, comment)
+{
+
+}
+
+function actionMailTo(uuid, email)
+{
+	if ( email != null && email.indexOf('@') )
+	{
+		logAction('Email', uuid, 'Attempted' );
+		window.open( 'mailto:' + email );
+	}
+}
+</script>
+
+
+
+
+
+<style>
+ body {
+	 overflow-x: hidden !important;
+ }
+</style>
+ 
+ 
+
+
+
+
+
+<script>
+
+// detect if window was open in new tab
+if(!window.jQuery)
+{
+	window.location = '/sunbase/index.jsp?page=' + escape( location.pathname.replace("/sunbase", "") );
+}	
+
+function lazyInitAdvancedWhere()
+{
+	if ( document.getElementById('advancedSearchForm1').innerHTML.indexOf("LOADING") != -1 )
+	{
+		$.ajax({
+			type: "GET",
+			url: "modules/x/../crm/lead_cmd.jsp?cmd=adv_where&filter=",
+			data: "",
+
+			success: function (data) {
+				document.getElementById('advancedSearchForm1').innerHTML = data;
+				$('#advancedSearchForm1').toggleClass('show');
+				
+				if ( data !== null && data.indexOf("enableCors") != -1 )
+				{
+					window.location='/sunbase/login_cmd.jsp?cmd=logout';
+				}
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				console.log( "Unable to load advanced search " + textStatus );
+			}
+		});
+	}
+	else
+	{	
+		$('#advancedSearchForm1').toggleClass('show');
+		//if ( document.getElementById('advancedSearchForm1').style== 'block' )
+		//	document.getElementById('advancedSearchForm1').style.display='none';
+		//else
+			//document.getElementById('advancedSearchForm1').style.display='block';
+	}
+
+}
+
+function refreshTable()
+{
+	v = $(".flexme3");
+	if ( v != null )	
+		v.flexReload();
+}
+
+function editLookup(type, look)
+{
+	if ( type == 'lookup' )
+	{
+		// open edit window.
+		if ( look == '' )
+		{
+			$.growl.error({ message: "Sorry this is a hard coded list" });
+		}
+		else
+		{
+			window.open( "/sunbase/index.jsp?nomenu=1&page=/modules/zadmin/lookup_codes_form.jsp%3Fname_code=" + look );
+		}
+	}
+	else if ( type == 'payee' )
+	{
+		// open edit window.
+		window.open( "/sunbase/index.jsp?nomenu=1&page=/modules/invoice/payee_form.jsp" );
+	}
+	else if ( type == 'event' )
+	{
+		// open edit window.
+		window.open( "/sunbase/index.jsp?nomenu=1&page=/modules/marketing/event_form.jsp" );
+	}
+	else
+	{
+		$.growl.error({ message: "Unknown edit type " + look + " " + type });
+	}
+}
+
+function downloadUrl()
+{
+	var idown = document.getElementById("download_frame");
+	if (idown) {
+	   idown.src = url;
+	}
+//	else {
+	//	idown = $('<iframe id=\"download_frame\">', { id:'idown', src:url }).hide().appendTo('body');
+	 // }
+}
+
+function removeFilters()
+{
+	$.ajax({
+			url: "/sunbase/modules/common/common_cmd.jsp?cmd=reset",
+			success: function(response) {
+
+				if ( response.indexOf("Success") != -1 )
+				{
+					document.getElementById("resetBtn").style.display = "none";
+					resetAdvancedSearch();
+					refreshTable();
+				}
+			}
+		}); 	
+}
+
+function invokeServerAsync(url)
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+
+function loadXMLDocOnly(url)
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("POST",url,false);
+xmlhttp.send(null);
+
+return ( xmlhttp.responseText.trim() );
+
+}
+
+</script>
+
+
+
+ 
+	<script>
+function toggleAdvanced() {
+ var v = document.getElementById('advancedSearchForm1');
+ if ( v == null || v.innerHTML.indexOf('LOADING') !== -1 ){  lazyInitAdvancedWhere(); }
+ else { $('#advancedSearchForm1').toggleClass('show'); } 
+}
+</script>
+<div class="fieldBox"><button class="advBtn" name="advancedBtn" id="advancedBtn" title="Advanced Filters" onclick="toggleAdvanced();return false;"><i style="padding-top:1px" class="fa fa-filter"></i> Filter</button>
+<span id="resetBtn" class="input-group-addon" style="background-color:indianred" title="Clear filters" onclick="removeFilters()"><span style="color:white" class="actBox glyphicon glyphicon-remove-circle"></span></span>
+</div>
+<div name="advancedSearchForm1" id="advancedSearchForm1" class=""><fieldset><div class="col-md-12" style="padding:0px 1px; border-spacing:0; border-collapse: collapse; padding:1">
+<div style="float: right"><a onclick="$(&#39;#advancedSearchForm1&#39;).removeClass(&#39;show&#39;);"><i class="fa fa-times" style="color: red" aria-hidden="true"></i></a></div><p></p>
+<p align="center"><button class="advBtn" name="advancedBtn" id="advancedBtn" title="Search" onclick="onAdvancedSearch();return false;"><i style="padding-top:3px" class="fa fa-search"></i> Search</button>
+<button name="resetAdvancedBtn" class="advBtn" id="resetAdvancedBtn" onclick="resetAdvancedSearch(); return false;"><i style="padding-top:3px" class="fa fa-undo"></i> Reset</button>
+</p><div id="advItem">
+<label for="start_date">Start Date</label>
+<div class="fieldBox"><input type="text" name="start_date" id="start_date" placeholder="mm/dd/yyyy" value="" readonly="true" size="10">
+<span class="input-group-addon" title="Pick the date" onclick="displayDatePicker(&#39;start_date&#39;)"><span class="actBox glyphicon glyphicon-calendar"></span></span>
+<span class="input-group-addon" title="Clear" onclick="document.getElementById(&#39;start_date&#39;).value=&#39;&#39;"><span class="actBox glyphicon glyphicon-remove-circle"></span></span></div>
+</div>
+<div id="advItem">
+<label for="end_date">End Date</label>
+<div class="fieldBox"><input type="text" name="end_date" id="end_date" placeholder="mm/dd/yyyy" value="" readonly="true" size="10">
+<span class="input-group-addon" title="Pick the date" onclick="displayDatePicker(&#39;end_date&#39;)"><span class="actBox glyphicon glyphicon-calendar"></span></span>
+<span class="input-group-addon" title="Clear" onclick="document.getElementById(&#39;end_date&#39;).value=&#39;&#39;"><span class="actBox glyphicon glyphicon-remove-circle"></span></span></div>
+</div>
+<div id="advItem">
+<label for="uuid_user">Sales Rep</label>
+<select name="uuid_user" style="width:250px" id="uuid_user">
+<option value=""></option><option value="d1f1779f29524e3281721f64ec316c8c">Jake A.</option><option value="c445ed7304074920b898b73b3011ef23">John L.</option><option value="e3a3fafa761944e1bfe2df6d831e31be">Josh D.</option>
+</select>
+</div>
+<div id="advItem">
+<label for="quote_cd">Interest</label>
+<div class="fieldBox"><select style="max-width:200px" name="quote_cd" id="quote_cd">
+<option value="all">All</option>
+<option value="fan">Attic Fan</option><option value="En Eval">Energy Evaluation</option><option value="insu">Insulation</option><option value="pump">Pump</option><option value="serv">Service</option><option value="elec">Solar Electric</option><option value="h2o">Solar Hot Water Heater</option><option value="pool">Solar Pool Heater</option>
+</select>
+<span class="input-group-addon" title="Edit Lookup" onclick="editLookup(&#39;lookup&#39;, &#39;lead_interest&#39;)"><span class="actBox glyphicon glyphicon glyphicon-pencil"></span></span>
+</div>
+</div>
+<div id="advItem">
+<label for="appt_user">Appointment Setter</label>
+<select name="appt_user" style="width:250px" id="appt_user">
+<option value=""></option><option value="d1f1779f29524e3281721f64ec316c8c">Jake A.</option><option value="c445ed7304074920b898b73b3011ef23">John L.</option><option value="e3a3fafa761944e1bfe2df6d831e31be">Josh D.</option>
+</select>
+</div>
+<div id="advItem">
+<label for="lead_src">Lead Source</label>
+<div class="fieldBox"><select style="max-width:200px" name="lead_src" id="lead_src">
+<option value="all">All</option>
+<optgroup label="Internet"><option value="Website">Website</option><option value="Facebook">Facebook</option><option value="Google Adwords">Google Adwords</option><option value="Paid Leads">Paid Leads</option><option value="Email Blast">Email Blast</option></optgroup><optgroup label="Referral"><option value="Customer Referral">Customer Referral</option><option value="Employee Referral">Employee Referral</option></optgroup><optgroup label="SelfGen"><option value="Sales Rep">Sales Rep</option><option value="Phone Inquiry">Phone Inquiry</option><option value="Canvassing">Canvassing</option><option value="Yard Sign">Yard Sign</option></optgroup>
+</select>
+<span class="input-group-addon" title="Edit Lookup" onclick="editLookup(&#39;lookup&#39;, &#39;lead_source&#39;)"><span class="actBox glyphicon glyphicon glyphicon-pencil"></span></span>
+</div>
+</div>
+<div id="advItem">
+<label for="refer">Lead Event</label>
+<select name="refer" style="width:250px" id="refer">
+<option value="all">All</option>
+<option value="Fall Home Show">Fall Home Show</option><option value="Spring Home Show">Spring Home Show</option>
+</select>
+</div>
+<div id="advItem">
+<label for="leadName">Lead Name</label>
+<input type="text" name="leadName" style="width:250px" id="leadName" value="" size="30">
+</div>
+<div id="advItem">
+<label for="state">State</label>
+<div class="fieldBox"><select style="max-width:200px" name="state" onchange="stateChanged(&#39;state&#39;)" id="state">
+<option value="all">All</option>
+<option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+</select>
+<span class="input-group-addon" title="Edit Lookup" onclick="editLookup(&#39;lookup&#39;, &#39;state_code&#39;)"><span class="actBox glyphicon glyphicon glyphicon-pencil"></span></span>
+</div>
+</div>
+<div id="advItem">
+<label for="county">County</label>
+<div class="fieldBox"><select style="max-width:200px" name="county" onchange="loadCounties(&#39;county&#39;)" id="county">
+<option value="all">All</option>
+</select>
+</div>
+</div>
+<div id="advItem">
+<label for="city">City</label>
+<div class="fieldBox"><select style="max-width:200px" name="city" id="city">
+<option value="all">All</option>
+
+</select>
+<span class="input-group-addon" title="Edit Lookup" onclick="editLookup(&#39;lookup&#39;, &#39;city&#39;)"><span class="actBox glyphicon glyphicon glyphicon-pencil"></span></span>
+</div>
+</div>
+<div id="advItem">
+<label for="leadStatus">Lead Status</label>
+<div class="fieldBox"><select style="max-width:200px" name="leadStatus" id="leadStatus">
+<option value="all">All</option>
+<optgroup label="Campaign"><option value="Call Attempt 1 - NA">Call Attempt 1 - NA</option><option value="Call Attempt 2 - NA">Call Attempt 2 - NA</option><option value="Call Attempt 3 - NA">Call Attempt 3 - NA</option><option value="Bad #">Bad #</option><option value="No Number">No Number</option></optgroup><optgroup label="Other"><option value="Email">Email</option><option value="Text">Text</option><option value="Follow Up">Follow Up</option><option value="Stop By">Stop By</option></optgroup>
+</select>
+<span class="input-group-addon" title="Edit Lookup" onclick="editLookup(&#39;lookup&#39;, &#39;LEAD_STATUS&#39;)"><span class="actBox glyphicon glyphicon glyphicon-pencil"></span></span>
+</div>
+</div>
+<div id="advItem">
+<label for="utility">Utility</label>
+<div class="fieldBox"><select style="max-width:200px" name="utility" multiple="true" id="utility">
+<option value="all">All</option>
+<option value="Duke">Duke</option><option value="FPL">FPL</option><option value="KUA">KUA</option><option value="OUC">OUC</option><option value="SECO">SECO</option><option value="Weststar">WS</option>
+</select>
+<span class="input-group-addon" title="Edit Lookup" onclick="editLookup(&#39;lookup&#39;, &#39;util_companies&#39;)"><span class="actBox glyphicon glyphicon glyphicon-pencil"></span></span>
+</div>
+</div>
+<div id="advItem">
+<label for="territory">Territory</label>
+<select name="territory" style="width:250px" id="territory">
+<option value="all">All</option>
+<option value="872a82c0ecaa4bfab534779c4d85a103">East</option><option value="d5245d76bd7b4607a9b4fcf0b88d1e6b">North</option><option value="00b0a48814654147afcaeff4a0df1134">South</option><option value="2106f0e510db4a9eb02cf31e8a21f894">West</option>
+</select>
+</div>
+</div></fieldset>
+		
+</div>
+<div id="Container" class="col si_wrap">
+<div class="nav_filters_invoices si_buttons_manage_invoices">
+<span class="nav_filters_title">Filters:</span>
+<select onchange="onFilterOption(this);" class="nav_filters_links">
+<option onclick="spaNavigatePage(&#39;modules/crm/lead_form.jsp?cmd=list&amp;filter=1&amp;filter=1&amp;filterType=&#39;);return false;" class="first selected" selected="true ">All</option>
+<option onclick="spaNavigatePage(&#39;modules/crm/lead_form.jsp?cmd=list&amp;filter=1&amp;filter=1&amp;filterType=follow_up&#39;);return false;" class=" yellownav">Follow Up</option>
+<option onclick="spaNavigatePage(&#39;modules/crm/lead_form.jsp?cmd=list&amp;filter=1&amp;filter=1&amp;filterType=setter_but_no_appt&#39;);return false;" class=" orangenav">Setter to call</option>
+<option onclick="spaNavigatePage(&#39;modules/crm/lead_form.jsp?cmd=list&amp;filter=1&amp;filter=1&amp;filterType=ignore&#39;);return false;" class=" ">Ignore Status</option>
+</select>
+</div>
+</div>
+<br><button class="btn-medium" onclick="selectAll()">Toggle Select All</button>
+		
+
+	
+
+
+
+		<div id="innerPage" style="display: none"></div>
+		
+		<table class="flexme3"/>
+		
+        <script type="text/javascript">
+		
+		
+
+					
+			//var popupMode = true;
+            $(".flexme3").flexigrid({
+				
+                url : 'lead.xml?cmd=list',
+				dataType : 'xml',
+
+				
+				colModel : [
+{ display : 'key', name : 'uuid', width : 0, hide:true,sortable : false, align : 'left'} ,
+{ display : 'color', name : 'color', width : 20, hide:true,sortable : false, align : 'left'} ,
+{ display : 'Selected', name : 'selected', width : 60, hide:false,sortable : false, align : 'left'} ,
+{ display : 'Lead Date', name : 'leadReceived', width : 70, hide:false,sortable : true, align : 'left'} ,
+{ display : 'First Name', name : 'firstName', width : 120, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Last Name', name : 'lastName', width : 120, hide:false,sortable : true, align : 'left'} ,
+{ display : '2nd First Name', name : 'secondFirstName', width : 120, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Phone', name : 'phone1', width : 120, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Lead Status', name : 'leadStatus', width : 120, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Last Contact Date', name : 'lastContactDate', width : 120, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Follow Up Date', name : 'followUpDate', width : 120, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Lead Source', name : 'leadSource', width : 100, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Email', name : 'email', width : 140, hide:false,sortable : true, align : 'left'} ,
+{ display : 'ApptSetter', name : 'appointmentSetter', width : 140, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Lead Name', name : 'refer', width : 60, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Sales Rep', name : 'salesUuid', width : 140, hide:false,sortable : true, align : 'left'} ,
+{ display : 'Action', name : '', width : 90, hide:false,sortable : true, align : 'left'} ],
+buttons : [
+{ label : 'Add', name : 'Add', bclass : 'add', onpress : test},
+{ label : 'Edit', name : 'Edit', bclass : 'edit', onpress : test},
+{ label : 'Delete', name : 'Delete', bclass : 'delete', onpress : test},
+{ label : 'Export', name : 'Export', bclass : 'csv', onpress : csvExport},
+{ label : 'Search', name : 'Search', bclass : 'search', onpress : searchPress},
+{ label : 'Group', name : 'Group', bclass : 'group', onpress : test},
+{ label : 'Ungroup', name : 'Ungroup', bclass : 'ungroup', onpress : test},
+{ label : 'MultiAssign', name : 'MultiAssign', bclass : 'multiassign', onpress : test},
+{separator : true}
+],
+searchitems : [
+{ display : 'Last Name', name : 'lastName',isdefault: true},
+{ display : 'First Name', name : 'firstName'},
+{ display : '2nd First Name', name : 'secondFirstName'},
+{ display : '2nd Last Name', name : 'secondLastName'},
+{ display : 'Phone', name : 'phone1'},
+{ display : 'Address1', name : 'address1'},
+{ display : 'Zip', name : 'zip'},
+{ display : 'City', name : 'city'},
+{ display : 'Email', name : 'email'},
+{ display : 'Utility', name : 'customField1'},
+{ display : 'Interest', name : 'interests'},
+{ display : 'Lead Source', name : 'leadSource'},
+{ display : 'Lead Name', name : 'refer'},
+{ display : 'Lead Status', name : 'leadStatus'}],
+sortname : 'createTime',
+sortorder : 'desc',
+usepager : true,
+title : 'Lead',
+useRp : true,
+rp : 15,
+onSuccess: flexi_colorGridRows, //change row colours here
+showToggleBtn : false,showTableToggleBtn : false,
+tableDataClass: 350,width : '100%',
+height : 550,
+singleSelect: true
+		
+
+				
+            });      
+			
+			function csvExport(com, g, p, grid) 
+			{
+				g.doCsv();
+			}
+			
+			function xlsExport(com, g, p, grid) 
+			{
+				$.growl.notice({ message: "Excel can open a CSV file." });
+//				if ( confirm("Generating an Excel file is a much more time consuming operation than generating a CSV. Do you want to generate a CSV instead?") ) 
+				g.doCsv();
+//				else
+//					g.doExcel();
+			}
+			
+			function searchPress()
+			{
+				document.getElementById("pSearch").click();
+			}
+
+
+			
+            function test(com, g, p, grid) 
+			{
+				console.log( com );
+                if (com == 'Delete') {
+					if ( $('.trSelected', grid).length > 0 )
+					{
+						var key = $('.trSelected td:eq(0)').text();
+						if ( key.length > 20 )
+
+						
+						{
+							$.prompt("Are you sure you want to delete this record?", {
+								title: "Confirm",
+								buttons: { "Yes": true, "No": false },
+								submit: function(e,v,m,f){
+									// use e.preventDefault() to prevent closing when needed or return false. 
+									// e.preventDefault(); 
+
+//									console.log("Value clicked was: "+ v);
+									if ( v == true )
+									{
+										var key = $('.trSelected td:eq(0)').text();
+										$.ajax({
+											url: "modules/x/../crm/lead_cmd.jsp?cmd=delete&key=" + key  + '',
+											success: function(result) {
+												if ( result.indexOf("Error") != -1 )
+												{
+													$.growl.error({ message: result });
+												}
+												else
+													refreshTable();
+											}
+										});
+									}
+								}							
+							});							
+						}
+					}
+					else
+					{
+						xdWarn("To delete a row click on a row and then hit delete");
+					}
+				}
+				else if ( com == 'Bulk Add' )
+				{
+					spaNavigatePage("modules/x/../crm/lead_cmd.jsp?cmd=onBulkEdit");
+                }					
+				else if (com == 'Add' || com == 'Create') 
+				{
+					//if ( popupMode )
+					//	loadPopup("modules/x/../crm/lead_edit.jsp?key=" + key, "create", 'Add', 'modules/x/../crm/lead_cmd.jsp', 'flexme3' );
+					//else
+						spaNavigatePage("modules/x/../crm/lead_edit.jsp?x=1"  + '');
+					
+//					var url = "modules/x/../crm/lead_edit.jsp?x=1"  + '';
+//					loadPopup(url, "edit", 'Edit', listCommandPage, 'flexme3' );
+                }
+                else if (com == 'Group' || com == 'Ungroup' ) 
+				{
+					var group_ids = "";
+				
+					var selc = $('tr', grid);
+					for ( var i = 1; i <= selc.length; ++i )
+					{
+						var row = selc[i];
+
+						var id = $('td:eq(0)', row).text();
+						//var selectedFlag = $('td:eq(1)', row).text();
+						if ( id != "" )
+						{
+							var selectedFlag = document.getElementById("cb_" + id );
+							if ( selectedFlag != null )
+							{
+								if ( selectedFlag.checked == true )
+								{
+//									console.log( "scan [" + "cb_" + id + "] " + selectedFlag.checked );
+									group_ids += id + ";";
+								}
+							}
+						}						
+					}
+					
+					if ( group_ids != "" )
+					{
+						spaNavigatePage("modules/common/group_assign.jsp?src=modules/crm/allcustomers_form.jsp&group_ids=" + group_ids + "&groupType=" + com );
+					}					
+				}
+				else if (com == 'Print') 
+				{
+					var extended = extendedSearch();
+					console.log("EXTENDED " + extended.trim() );
+					if ( $('.trSelected', grid).length > 0 )
+					{
+						var key = $('.trSelected td:eq(0)').text();
+						window.open("modules/common/print_record.jsp?recordType=print_service&parentId=" + key ).focus();
+
+//						var url = window.open("modules/common/print.jsp?list=../../modules/x/../crm/lead_edit.jsp%26=" + key + "%26cmd=list%26filter=" + extended, "print");
+					}
+//					console.log(url );
+					//window.location = url;
+                }
+                else if (com == 'MultiAssign' ) 
+				{
+					// prompt user for sales rep or appt setter
+
+
+					var group_ids = "";
+				
+					var selc = $('tr', grid);
+					for ( var i = 1; i <= selc.length; ++i )
+					{
+						var row = selc[i];
+
+						var id = $('td:eq(0)', row).text();
+						//var selectedFlag = $('td:eq(1)', row).text();
+						if ( id != "" )
+						{
+							var selectedFlag = document.getElementById("cb_" + id );
+							if ( selectedFlag != null )
+							{
+								if ( selectedFlag.checked == true )
+								{
+									console.log( "scan [" + "cb_" + id + "] " + selectedFlag.checked );
+									group_ids += id + ";";
+								}
+							}
+						}						
+					}
+					
+					if ( group_ids == "" )
+					{
+						$.growl.error({ message: "Nothing is selected" });
+					}					
+					else
+					{
+						$.ajax({
+							type: "POST",
+							url: "modules/crm/allcustomers_cmd.jsp?cmd=multi_assign_html&ids=" + group_ids,
+							data: '',
+
+							success: function (html) {
+
+							//console.log("Got html " + html );
+							
+								var statesdemo = {
+									state0: {
+										html:html,
+										title: "Confirm",
+										buttons: { "Assign": true, "Cancel": false },
+										//focus: "input[name='fname']",
+										submit:function(e,v,m,f){ 
+											//console.log(f);
+
+												if ( v == true )			
+												{
+												$.ajax({
+													type: "GET",
+													url: "modules/crm/allcustomers_cmd.jsp?cmd=multi_assign",
+													data: f,
+
+													success: function (data) {
+														$.growl.notice({ message: "Success." });
+														//$(".flexmeNotes").flexReload();
+													},
+													error: function (XMLHttpRequest, textStatus, errorThrown) {
+														console.log( textStatus );
+													}
+												});
+												}
+										}// end of submit
+									  }
+									}
+								
+									if ( statesdemo != null )
+										$.prompt(statesdemo);
+							}
+						});	
+					}
+			}
+			else if (com == 'Edit' || com == 'Open' ) {
+				if ( $('.trSelected', grid).length > 0 )
+				{
+					var key = $('.trSelected td:eq(0)').text();
+					if ( key.length > 20 )
+
+//					if ( popupMode )
+//						loadPopup("modules/x/../crm/lead_edit.jsp?key=" + key, "edit", 'Edit', 'modules/x/../crm/lead_cmd.jsp', 'flexme3' );
+//					else
+						spaNavigatePage("modules/x/../crm/lead_edit.jsp?key=" + key + '');
+				}
+				else
+					$.growl.notice({ message: "Please select an entry from the list." });
+			}			
+			else
+			{
+				window.location = 'modules/x/../crm/lead_cmd.jsp?cmd=on' + com + '&';
+            }					
+
+
+            }
+
+
+			$(".flexme3").dblclick(
+				function (e)
+				{
+					var key = $('.trSelected td:eq(0)').text();
+					if ( key.length > 20 )
+
+
+					spaNavigatePage("modules/x/../crm/lead_edit.jsp?key=" + key + '');
+				}
+			)
+
+			function toggle()
+			{
+				var v = document.getElementsByClassName('flexigrid')[0];
+				if ( v != null )
+				{
+					if ( v.style.display == "none" )
+						v.style.display = "block";
+					else
+						v.style.display = "none";
+				}
+			}
+        </script>
+	
+
+
+
+<!--
+ <iframe id="download_frame" width='1' height='1' src='#' style="display:none" ></iframe>
+-->
+
+<script>
+function extendedSearch2()
+{
+	var text = "";
+	if  (document.getElementById('advancedSearchForm1') != null )
+	{
+		var v = document.getElementById('advancedSearchForm1').getElementsByTagName('input');
+		for (i = 0; i < v.length; i++) 
+		{ 
+			text += "&" + v[i].name + "=" + escape( v[i].value );
+		}	
+		v = document.getElementById('advancedSearchForm1').getElementsByTagName('select');
+		for (i = 0; i < v.length; i++) 
+		{ 
+			if ( v[i].multiple )
+			{
+				console.log("Multi " + v[i].options.length );
+				for (ix = 0; ix < v[i].options.length; ix++) { 
+					if ( v[i].options[ix].selected )
+					{
+						text += "&" + v[i].name + "=" + escape( v[i].options[ix].value );
+					}
+				}
+			}	
+			else
+			{
+				text += "&" + v[i].name + "=" + escape( v[i].value );
+			}
+		}
+		
+		console.log(text);
+	}
+	return text;
+}
+
+function resetAdvancedSearch()
+{
+	var text = "";
+	if ( document.getElementById('advancedSearchForm1') != null )
+	{
+		var v = document.getElementById('advancedSearchForm1').getElementsByTagName('input');
+		for (i = 0; i < v.length; i++) 
+		{ 
+			if ( v.type == 'date' )
+			{
+				v[i].value  = 'mm/dd/yyyy';
+			}
+			else
+			{
+				v[i].value  = '';
+			}
+		}	
+		v = document.getElementById('advancedSearchForm1').getElementsByTagName('select');
+		for (i = 0; i < v.length; i++) { 	
+			v[i].selectedIndex = 0;
+		}	
+		
+		onAdvancedSearch();
+	}
+}
+
+function onAdvancedSearch()
+{
+//	alert("Search");
+	$('#advancedSearchForm1').removeClass('show');
+	$(".flexme3").flexSearch();
+}
+
+setFlexiheight();
+
+
+function setFlexiheight()
+{
+	try {
+		var top = $('.flexigrid').position().top;		
+		var height = window.innerHeight - top - 145;
+		if ( height > 200 )
+			$('.bDiv').height(height);
+	}
+	catch(e) {
+	}
+}
+</script>
+
+
+<style>
+/*Defaults Styling*/
+fieldset {background:#f2f2e6; min-width: 100px; display: inline-block; padding:10px; border:1px solid #fff; border-color:#fff #666661 #666661 #fff; margin-bottom:36px; width:100%;}
+input, textarea, select {font:18px/28px Tahoma,Arial, Helvetica, sans-serif; padding:0;}
+fieldset.action {background:#9da2a6; border-color:#e5e5e5 #797c80 #797c80 #e5e5e5; margin-top:-20px;}
+legend {background:#0000FF; color:#fff; font:17px/21px Calibri, Arial, Helvetica, sans-serif; padding:0 10px; margin:-26px 0 0 -11px; font-weight:bold; border:1px solid #fff; border-color:#e5e5c3 #505014 #505014 #e5e5c3;}
+label {padding:0 9px; vertical-align:top; min-width: 100px; display: inline-block; font-size:13px; font-weight:bold; color:#666;}
+label.opt {font-weight:normal;}
+#.bDiv {
+#	height: calc( 100% - 370px) !important;
+#}
+
+</style>
+
+</div>
+<script>
+	
+
+	
+	
+	function startChat()
+	{
+		setTimeout( recount, 200 );
+		
+			var start = "ws://" + window.location.hostname;
+			if ( window.location.protocol == 'https:' )
+					start = "wss://" + window.location.hostname + "";
+			var wsUri = start + "/sunbase/chatws?schema=solar&session=A2478391158BBB1ABB8FF03E525D45EF&useruuid=71590418a3cc43b0b4fc29f5e86d6868&color=black&uuid=71590418a3cc43b0b4fc29f5e86d6868&label=" + escape("SunbaseData Admin") + "&avatar=blank.png"; 
+			
+			setTimeout(function(){ 
+				initializeChat(wsUri, escape("SunbaseData Admin"), 'blank.png', 'solar');	
+			}, 2000 );
+		
+		//setTimeout( recount, 200 );
+	}
+	
+	$(document).ready(function(){
+
+		
+		
+		
+        $("body").keydown(function(key) 
+		{
+			var isShift;
+			if (window.event) {
+				isShift = !!window.event.shiftKey; // typecast to boolean
+			} else {
+				isShift = !!key.shiftKey;
+			}
+            if (isShift && key.which == 113) { // F2 key
+                spaRefreshNavigatePage();
+            }
+			
+        });
+		
+
+    });
+	
+</script>
+
+	<div id="overlay" style="display:none">
+		<div id="overlaydiv" style="border:1">
+			Please wait while we process your request.<br>
+			<center><div class="loader">Loading...</div></center>
+		</div>
+	</div>
+	
+	
+	
+	        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                
+                //Mouseup textarea false
+                $(".submenu").mouseup(function()
+                {
+                    return false
+                });
+                $(".quickAddI").mouseup(function()
+                {
+                    return false;
+                });
+                $(".account").mouseup(function()
+                                      {
+                    return false
+                });
+                //Textarea without editing.
+                $(document).mouseup(function()
+                {
+					hideQuickAdd();
+                    $(".submenu").hide();
+                    $(".account").attr('id', '');
+                });
+
+            });
+
+        </script>
+        <style type="text/css">
+			.dial_row_div {
+				min-width:100px;padding-left:0; padding-right:0
+			}
+            div.dropdown {
+                color: #555;
+                margin: 0 auto;
+                width: 143px;
+                position: relative;
+                height: 17px;
+                text-align:left;
+            }
+			li.dropMenuSeparator {
+    height: 1px;
+    background-color: #e5e5e5;
+}
+
+			div.addSubmenu
+			{
+                position: absolute;
+                z-index: 0;
+                width: 135px;
+                margin-left: 10px;
+                border-radius: 6px;
+				display:none;
+            }
+			div.addSubmenu.show
+			{
+				display:block;
+				z-index: 99;
+            }
+            div.submenu
+            {
+
+                position: absolute;
+                z-index: 99;
+                width: 135px;
+                display: none;
+                margin-left: 10px;
+                padding: 40px 0 5px;
+                border-radius: 6px;
+
+            }
+            .dropdown  li a {
+
+                color: #555555;
+                display: block;
+                font-family: arial;
+                font-weight: bold;
+                padding: 6px 15px;
+                cursor: pointer;
+                text-decoration:none;
+            }
+
+            .dropdown li a:hover{
+                background:#155FB0;
+                color: #FFFFFF;
+                text-decoration: none;
+
+            }
+            .account {
+                font-size: 11px;
+                line-height: 16px;
+                color: #555;
+                position: absolute;
+                z-index: 100;
+                display: block;
+                padding: 11px 0 40px 20px;
+                height: 28px;
+                width: 121px;
+                margin: -11px 0 0 -10px;
+                text-decoration: none;
+                background: url('img/arrow.png') 80px 32px no-repeat;
+                cursor:pointer;
+            }
+            .root
+            {
+                list-style: none;
+                font-size: 11px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+                background: #fff;
+                padding: 10px 0 10px 0;
+                border-radius: 5px 5px 5px 5px;
+                margin: 21px 0 0 -70;
+				width:225px;
+            }
+            .root:before {
+                content: '';
+                display: inline-block;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-bottom: 7px solid #ccc;
+                border-bottom-color: #ffffff;
+                position: absolute;
+                color: #ffffff;
+                top: 54px;
+                left: 17px;
+            }
+            .menudroproot
+            {
+                list-style: none;
+                font-size: 11px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+                background: #fff;
+                border-radius: 5px 5px 5px 5px;
+                margin: 21px 0 0 0;
+				width:150px;
+            }
+            .profile-circle {
+                width: 40px;
+                height: 39px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                -webkit-border-radius: 99em;
+                -moz-border-radius: 99em;
+                border-radius: 99em;
+                border: 2px solid #eee;
+                box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+                vertical-align: middle;
+            }
+			.dial-flat-act-button {
+			  position: relative;
+			  vertical-align: top;
+			  height: 36px;
+			  width: 100%;
+			  padding: 0;
+			  border: 1px solid #000000;
+			  font-size: 14px;
+			  color: white;
+			  text-align: center;
+			  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+			  background: #bdc3c7;
+			  cursor: pointer;
+			  padding-left: 0px !important;
+			  padding-right: 0px !important;
+			}
+
+			.dial-flat-button {
+			  position: relative;
+			  vertical-align: top;
+			  height: 30px;
+			  width: 100%;
+			  padding: 0;
+			  border: 0px;
+			  font-size: 14px;
+			  color: white;
+			  text-align: center;
+			  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+			  background: #f1c40f;
+			  cursor: pointer;
+			  padding-left: 0px !important;
+			  padding-right: 0px !important;
+			}
+			
+.primary-btn {
+	color:white !important;
+    background-color: #2e6e9e !important;
+    border: 0px solid #2e6e9e !important;
+}
+
+.btn-tall
+{
+	height:40px !important;
+	font-weight:600;
+}
+.primary-btn:hover {
+    background-color: #2e8e9e !important;
+}
+
+.btn-medium:hover {
+    background: #e7e7e7;
+}
+.btn-medium {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 18px;
+    color: #212835;
+    text-align: center;
+    cursor: pointer;
+    background: #f5f7f8;
+    border: 1px solid #cbd5db;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: box-shadow .05s linear;
+    -moz-transition: box-shadow .05s linear;
+    -ms-transition: box-shadow .05s linear;
+    -o-transition: box-shadow .05s linear;
+    transition: box-shadow .05s linear;
+}			
+			
+			.notify_box {
+	margin-top:3px;
+    background-color: #e6f8ff;
+    border: 1px solid #ccf0ff!important;
+    color: #00a2e6;
+    box-shadow: 0 2px 0 #ccf0ff;
+    border-radius: 4px;
+    padding: 8px 35px 8px 14px;
+}
+
+.notify_box h3 {
+	margin-bottom:14px;
+	font-weight:700;
+	background-color: #e6f8ff;
+	color: #00a2e6;
+}
+
+.notify_box .close {
+    position: relative;
+    top: -10px;
+    left: 30px;
+    float: right;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #212835;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+}
+
+        </style>
+<style>
+</style>
+<div id="dialerTransferDiv" style="display:none">
+  <div class="row" style="padding-bottom:2px">
+	  <div class="col-md-4"><label>External number</label></div>
+	  <div class="col-md-4"><label>Internal Transfer</label></div>
+	  <div class="col-md-4"><label style="width:100px">Agent Transfer</label><a onclick="reloadAgentList(); return false;">(reload list)</a></div>
+   </div>
+  <div class="row">
+	  <div class="col-md-4"><input type="text" maxlength="15" name="externalPhone" placeholder="Transfer call to"></div>
+	  <div class="col-md-4"><select disabled="true"></select></div>
+	  <div class="col-md-4"><select disabled="true"></select></div>
+   </div>
+	<br>
+  <div class="row">
+	  <div class="col-md-4"><button class="dial-flat-button" style="border-bottom: 2px solid #2a8bcc; -webkit-box-shadow:#2a8bcc; box-shadow: #2a8bcc; background: #3498db">Blind Transfer</button></div>
+	  <div class="col-md-4"><button class="dial-flat-button" style="border-bottom: 2px solid #2a8bcc; -webkit-box-shadow:#2a8bcc; box-shadow: #2a8bcc; background: #3498db">Dial with Customer</button></div>
+	  <div class="col-md-4"><button class="dial-flat-button" disabled="true" style="border-bottom: 2px solid grey; -webkit-box-shadow:grey; box-shadow: grey; background: grey">Internal Transfer</button></div>
+   </div>
+	<br>
+  <div class="row">
+	  <div class="col-md-4"><button class="dial-flat-button" style="border-bottom: 2px solid #db4334; -webkit-box-shadow:#db4334; box-shadow: #db4334; background: #e74c3c">Leave 3 Way Call</button></div>
+	  <div class="col-md-4"><button class="dial-flat-button" style="border-bottom: 2px solid #db4334; -webkit-box-shadow:#db4334; box-shadow: #db4334; background: #e74c3c">Hangup Xfer line</button></div>
+	  <div class="col-md-4"><button class="dial-flat-button" style="border-bottom: 2px solid #db4334; -webkit-box-shadow:#db4334; box-shadow: #db4334; background: #e74c3c">Hangup Both Lines</button></div>
+   </div><br>
+</div>
+<script>
+function onDialerIncommingQue2ueSelect()
+{
+   var html = '<div style="overflow-y:scroll; height: 200px">';
+   html += '     <input type="checkbox" class="incomQueue"/><label style="padding:5px">Queue #1</label><br/>';
+   html += '</div>';
+   html += '<hr/>';
+   html += '<div class="row">';
+/*	for ( var i = 0; i < dispositionCodes.length; ++i )
+	{
+		codes += '     <input type="checkbox" /><label style="padding:5px">Select All</label><br/>';
+//'<option value="' + dispositionCodes[i].code + '">' + dispositionCodes[i].name + '</option>';
+	}
+*/
+   html += '     <input type="checkbox" id="queueAll" onclick="incommingSelectAll()"/><label style="padding:5px">Select All</label><br/>';
+   html += '</div>';
+   html += '<br/>';
+
+	var statesdemo = {
+		state0: {
+			html: html,
+			title: "<b>Select Inbound Process</b>",
+			buttons: { "Close": false },
+			
+			submit:function(e,v,m,f){ 
+				//console.log(f);
+
+				if ( v == true )			
+				{
+//focus: "select[name='disp_code']",
+//					console.log( 'Disp code ' + f.disp_code );
+					//dialerManualDial(agent_user, f.pause_code );
+				}
+			}// end of submit
+		}
+	}
+	
+	if ( statesdemo != null ) {
+		var myPrompt = $.prompt(statesdemo);
+	}
+}
+
+function incommingSelectAll()
+{
+	var flag = document.getElementById('queueAll').checked;
+	var queues = document.getElementsByClassName('incomQueue');
+
+	for ( var i = 0; i < queues.length; ++i )
+	{
+		queues[i].checked = flag;
+	}
+}
+
+function emailAction(com, g, p, grid)
+{
+	newEmail('new', '', '', -1, "INBOX");
+}
+
+
+function newEmail(action, to, subject, messageNumber, folder)
+{
+	document.getElementById('emailTemplate').selectedIndex = 0;
+	document.getElementById('msgbody').innerHTML = '';
+         var $dialogContent = $("#event_new_container");		
+
+		 if ( to.length > 2 )
+		 {
+			 //$dialogContent.dialog("close");
+			 var toSplit = to.split(",");
+			 to = '[';		 
+			 for ( var i = 0; i < toSplit.length; ++i )
+			 {
+				to += '"' + toSplit[i] + '"';
+				if ( i < toSplit.length-1 )
+					to += ',';
+			 }
+			 to += ']';
+		 } 
+	     else {
+			 to = '';
+		 }
+
+		 document.getElementById('todiv').innerHTML = '';
+		 $('#todiv').append( $("<input type='text' id='toInput' name='toInput' class='form-control' value='' style='width:80%'/>") );
+
+		 document.getElementById('toInput').value = to;
+		 $('#toInput').multiple_emails({position: "bottom"});
+
+		 document.getElementById('subjectx').value = subject;
+
+         $dialogContent.dialog({
+            modal: true,
+            title: 'Email',
+			width: 1100,
+			height: 600,
+            close: function() {
+               $dialogContent.dialog("destroy");
+               $dialogContent.hide();
+            },
+			open: function() {
+				document.getElementById('msgbody').focus();
+			},
+            buttons: {
+			   Send : function() {
+				   
+				   
+				var data = 'cmd=send&subjectx=' + escape(document.getElementById('subjectx').value);
+				data += '&from=' + escape(document.getElementById('from').value);
+				data += '&body=' + escape(document.getElementById('msgbody').value);
+				data += '&to=' + escape( document.getElementById('toInput').value );
+				
+				   
+				$.ajax({
+					type: "POST",
+					url: "modules/plugins/webmail/webmail_cmd.jsp",
+					data: data,
+
+					success: function (data) {
+						if ( data != null && data.indexOf("Success") != -1 )
+						{
+							xdInfo("Email sent");
+							$dialogContent.dialog("close");					
+							ticketUuid = "";
+						}
+						else
+						{
+							xdError( "Error: " + data );
+						}
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						console.log( textStatus );
+					}
+				});
+				   
+			   },
+               Cancel : function() {
+                  $dialogContent.dialog("close");
+				  ticketUuid = "";
+               }
+            }
+         }).show();
+
+         $(window).resize().resize();	
+}
+
+</script>
+
+
+	<div id="event_new_container" style="background: white; display:none; width:90%">
+		<form>
+					<div class="messageItemHeader" style="font-family: seri; ">
+				
+					<span class="flagParent g-ui-user-select-none"><i class="icon-star-empty flagOff" data-bind="css: {&#39;icon-star flagOn&#39;: viewIsFlagged, &#39;icon-star-empty flagOff&#39;: !viewIsFlagged()}" style="padding-top: 2px;"></i></span>
+					<b style="color: red; margin-right: 5px; display: none;" data-bind="visible: viewIsImportant">!</b>
+
+					<div style="width: 100%">
+						<div style="float:left">
+							<img class="fromPic" src="./list_files/blank_profile.png">
+						</div>
+						<div style="float:left; display:inline; width:85%">
+							<span class="fromMsg"><b>From:</b> </span><select id="from" name="from" style="width:60%; max-width:350px; margin-left:5px">
+							<option value="07064c48bbec4eea9c8dbf5a84dc84b4">jareddubin@gmail.com</option>
+</select>								
+							<span class="emailTemplate"> <b>Email Template:</b>
+								<select name="emailTemplate" id="emailTemplate" style="width:150px" onfocus="loadEmailTemplates(&#39;emailTemplate&#39;)">
+								</select>
+								<button onclick="loadEmailTemplateText(); return false;">Load</button>
+							</span>
+							<br>
+							<span class="fromMsg"><b>To  :</b> </span>
+							<div id="todiv" style="display:inline-block">
+								<input type="text" id="toInput" name="toInput" class="form-control" value="" style="width:80%">
+							</div>
+
+							<div>
+							    <span class="fromMsg"><b>Subject:</b></span><input type="text" id="subjectx" style="width:60%; margin-left:5px" maxlength="50"><br>
+							</div>
+						</div>
+					</div>
+					<br>
+				
+				<div style="width: 100%; float:left; padding 2px 5px 5px 5px;">
+					<textarea id="msgbody" style="width:100%; height:390px"></textarea>
+				</div>
+		
+	</div></form>
+
+
+
+	
+
+					
+
+</div></div><div class="hiddendiv common"></div></body></html>

@@ -1,0 +1,123 @@
+#notification_nav{list-style:none;margin: 0px;padding: 0px;}
+#notification_nav li {
+float: left;
+margin-right: 20px;
+font-size: 14px;
+font-weight:bold;
+}
+#notification_nav li a{color:#333333;text-decoration:none}
+#notification_nav li a:hover{color:#006699;text-decoration:none}
+
+
+#notification_li
+{
+position:relative
+}
+
+#notificationContainer 
+{
+background-color: #fff;
+border: 1px solid rgba(100, 100, 100, .4);
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+overflow: visible;
+float: right;
+top: 90px;
+right:10px;
+position:absolute;
+width: 400px;
+z-index: 1000;
+display: none; // Enable this after jquery implementation 
+}
+// Popup Arrow
+#notificationContainer:before {
+content: '';
+display: block;
+position: absolute;
+width: 0;
+height: 0;
+color: transparent;
+border: 10px solid black;
+border-color: transparent transparent white;
+margin-top: -20px;
+margin-left: 188px;
+}
+#notificationTitle
+{
+font-weight: bold;
+padding: 8px;
+font-size: 13px;
+background-color: #36A1C2;
+color:white;
+z-index: 1001;
+width: 384px;
+border-bottom: 1px solid #dddddd;
+}
+#notificationsBody
+{
+padding: 10px 0px 0px 0px !important;
+min-height:450px;
+}
+#notificationFooter
+{
+background-color: #e9eaed;
+text-align: center;
+font-weight: bold;
+padding: 8px;
+font-size: 12px;
+border-top: 1px solid #dddddd;
+}
+
+
+.popupBlock {
+    text-decoration: none !important;
+    border-radius: 6px;
+}
+
+.timeline-block {
+    clear: both;
+    height: auto;
+}
+
+.timeline-block .panel-heading {
+    padding: 0;
+ #   background: #365D98;
+    color: #fff;
+}
+
+.searchFace {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8% !important;
+    height: 40px;
+    margin: 10px 0px 10px 10px !important;
+}
+
+.comment-author, .feed-author {
+    text-decoration: none !important;
+}
+.feed-author {
+    color: #3b5998 !important;
+    text-transform: capitalize;
+}
+
+
+.timeago {
+    display: block;
+    color: #999999 !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    text-transform: lowercase !important;
+}
+
+.notificationContent
+{
+	color: black;
+	font-size:16px;
+}
+
+.media-body-popup
+{
+	color: black;
+    border-bottom: 1px;
+    border-style: groove;	
+}

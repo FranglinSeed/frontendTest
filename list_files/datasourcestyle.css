@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: top;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+
+
+/* CSS Document */
+
+ul, ol {
+	margin-bottom:5px;
+}
+ol li {
+	list-style: none;
+	padding: 0px;
+}
+ol li div.question {
+	font-weight:bold;
+	color:#ccc;
+	margin-bottom:2px;
+}
+
+a {
+	text-decoration: none;
+	color: #0066FF;
+}
+
+h1 {
+	font-size: 23px;
+	font-weight: normal;
+	margin: 0px;
+	color: #666;
+}
+
+.code {
+	background: #555;
+	padding: 10px;
+	margin-bottom: 10px;
+	display: none;
+	color: #eee;
+}
+
+.title {
+	background: #0099FF;
+	color: #fff;
+	padding: 10px;
+}
+
+.bborder {
+	background: #eee;
+	border: 0px solid #ccc;
+	padding: 3px;
+}
+
+.update {
+	border: 1px solid #777;
+	overflow: hidden;
+	margin-top:20px;
+}
+
+.update.fh {
+	height: auto;
+}
+
+.update p {
+	margin: 10px;
+}
+
+.update h2 {
+	cursor: pointer;
+	display: block;
+	padding: 5px;
+	color: #fff;
+	position: relative;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 2px;
+	border-left: 0px solid #06f;
+	border-bottom: 2px solid #0066FF;
+	font-weight:bold;
+	margin:0 0 3px;
+}
+
+.flexigrid div.fbutton .add {
+	background: url(images/add.png?v=1) no-repeat center left;
+}
+.flexigrid div.fbutton .camera {
+	background: url(images/camera.png?v=1) no-repeat center left;
+}
+
+.flexigrid div.fbutton .webcamera {
+	background: url(images/webcamera.png?v=1) no-repeat center left;
+}
+
+
+.flexigrid div.fbutton .search {
+	background: url(images/magnifier.png?v=1) no-repeat center left;
+}
+
+
+.flexigrid div.fbutton .excel {
+	background: url(images/excel.gif?v=1) no-repeat center left;
+}
+.flexigrid div.fbutton .dialer {
+	background: url(images/phone.png?v=1) no-repeat center left;
+}
+
+.flexigrid div.fbutton .csv {
+	background: url(images/csv.png?v=1) no-repeat center left;
+}
+
+.flexigrid div.fbutton .delete {
+    background: url(images/close.png?v=1) no-repeat center left;
+}
+
+.flexigrid div.fbutton .reorder {
+    background: url(images/reorder.png?v=1) no-repeat center left;
+}
+
+.flexigrid div.fbutton .edit {
+	background: url(images/edit.png?v=1) no-repeat center left;
+}
+
+
+.flexigrid div.fbutton .bulkadd {
+	background: url(images/bulkadd.png?v=1) no-repeat center left;
+}
+.flexigrid div.fbutton .group {
+	background: url(images/group_add.png?v=1) no-repeat center left;
+}
+
+.flexigrid div.fbutton .ungroup {
+	background: url(images/group_del.png?v=1) no-repeat center left;
+}
+.flexigrid div.fbutton .multiassign {
+	background: url(images/multiassign.png?v=1) no-repeat center left;
+}
+.flexigrid div.fbutton .reset {
+	background: url(images/reset.png?v=1) no-repeat center left;
+}
+.flexigrid div.fbutton .print {
+	background: url(images/print.jpg?v=1) no-repeat center left;
+}

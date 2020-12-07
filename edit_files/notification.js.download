@@ -1,0 +1,353 @@
+// badge increase
+
+// avatar picture from backend
+
+function setNotifyCount(count)
+{
+	var btn = $('#notificationBtn');
+
+	if ( btn != null )
+	{
+		btn.attr( 'data-badge','' + count );
+		if ( count == 0 )
+		{
+			btn.removeClass('badge1');
+		}
+		else
+		{
+			if ( btn.hasClass( "badge1" ) == false )
+			{
+				btn.addClass('badge1');
+			}
+		}
+	}
+
+	btn = $('#notificationBtn1');
+	if ( btn != null )
+	{
+		btn.attr( 'data-badge','' + count );
+		if ( count == 0 )
+		{
+			btn.removeClass('badge1');
+		}
+		else
+		{
+			if ( btn.hasClass( "badge1" ) == false )
+			{
+				btn.addClass('badge1');
+			}
+		}
+	}
+}
+
+function toggleNotifications()
+{
+	if ( document.getElementById("notificationContainer").style.display == 'block' )
+		document.getElementById("notificationContainer").style.display = 'none';
+	else
+	{
+		document.getElementById("notificationContainer").style.display='block';//fadeToggle(300);
+		$( "#notificationContainer" ).draggable();
+		
+		// ajax load notifications
+	
+		document.getElementById("notificationsBody").innerHTML = '';
+		refreshNotifications(1);
+		
+		document.getElementById('notificationFooter').style.display = "block";
+//var v = '<br/><div class="timeline-block notificationsBlock popupBlock item" rel="1479504961"><div class=""><a href="https://labs.9lessons.info/status/2603" class="popupBlock"><div class="panel-heading"><div class="media nBlock"><span class="pull-left"><img src="https://wallscript8labs.s3.amazonaws.com/user1_14687604211.png" class="media-object searchFace"></span><div class="media-body-popup"><b class="feed-author">Srinivas Tamada</b><span> liked <b>Mikha Matta</b>s status: <span class="notificationContent">aa</span><div class="timeago" title="2016-11-18T22:36:01+01:00">2 months ago</div></span></div></div></div></a></div></div>';
+
+//v += '<br/><div class="timeline-block notificationsBlock popupBlock item" rel="1479504961"><div class=""><a href="https://labs.9lessons.info/status/2603" class="popupBlock"><div class="panel-heading"><div class="media nBlock"><span class="pull-left"><img src="https://wallscript8labs.s3.amazonaws.com/user1_14687604211.png" class="media-object searchFace"></span><div class="media-body-popup"><b class="feed-author">Srinivas Tamada</b><span> liked <b>Mikha Matta</b>s status: <span class="notificationContent">aa</span><div class="timeago" title="2016-11-18T22:36:01+01:00">2 months ago</div></span></div></div></div></a></div></div>';
+
+/*
+{"page":1,"count":1,"rows":[{"uuid":"6454f5c3a9334f439f117eb339196179","link":"","readFlag":true,"description":"test post","fromUser":"Jared Dubin","fromUserUuid":"230eab6430e24e8fa1123c6fb9de5757","assigned":"Jared Dubin","assignedUuid":"230eab6430e24e8fa1123c6fb9de5757","createTime":"Jan 28, 2017 8:04:14 AM"}]}
+		
+
+	var v = formatNotification('img/45.png', 'Jared Dubin', '2 months ago', 'likes the post', "https://labs.9lessons.info/status/2603");
+	v += formatNotification('img/45.png', 'Jared Dubin', '2 months ago', 'likes the post', "https://labs.9lessons.info/status/2603");
+	//var v = '<div class="timeline-block notificationsBlock popupBlock item" rel="1479504961"><div class=""><a href="https://labs.9lessons.info/status/2603" class="popupBlock"><div class="panel-heading"><div class="media nBlock"><span class="pull-left"><img src="img/45.png" class="media-object searchFace"></span><div class="media-body-popup"><b class="feed-author">Srinivas Tamada</b><span> liked <b>Mikha Matta</b>s status: <span class="notificationContent">aa</span><div class="timeago" title="2016-11-18T22:36:01+01:00">2 months ago</div></span></div></div></div></a></div></div>';
+	//v += '<br/><div class="timeline-block notificationsBlock popupBlock item" rel="1479504961"><div class=""><a href="https://labs.9lessons.info/status/2603" class="popupBlock"><div class="panel-heading"><div class="media nBlock"><span class="pull-left"><img src="img/45.png" class="media-object searchFace"></span><div class="media-body-popup"><b class="feed-author">Srinivas Tamada</b><span> liked <b>Mikha Matta</b>s status: <span class="notificationContent">aa</span><div class="timeago" title="2016-11-18T22:36:01+01:00">2 months ago</div></span></div></div></div></a></div></div>';
+	document.getElementById("notificationsBody").innerHTML = v;
+
+
+*/
+//document.getElementById("notificationsBody").innerHTML = v;
+	
+//		document.getElementById("notificationsBody").innerHTML = "<br/><div><img src='img/avatars/blank.png'></img> XXXX.<br/>1<br/>1/12/2017 08:00pm </div><br/><div><img src='img/avatars/blank.png'></img> XXXX </div><br/>";
+		
+		
+//document.getElementById("notificationsBody").innerHTML = '<br/><div class="_dre anchorContainer"><div class=""><a href="https://www.facebook.com/events/birthdays?extra_data[start_date]=2017%2F01%2F27&amp;extra_data[notif_id]=1485526952103850&amp;extra_data[notif_type]=birthday_reminder&amp;ref=notif&amp;notif_t=birthday_reminder&amp;notif_id=1485526952103850" class="_33e _1_0e"><div direction="left" class="clearfix"><div class="_ohe lfloat"><img src="https://scontent.ftpa1-2.fna.fbcdn.net/v/t1.0-1/p50x50/12249906_10208518241056841_6425802519038401339_n.jpg?oh=ae1dbcc8d451cf818ad1a914e7ed8fda&amp;oe=591DBD75" alt="" class="_33h img _8o _8r img"></div><div class=""><div class="_42ef _8u"><div direction="right" class="clearfix"><div class="_ohf rfloat"><span></span></div><div class=""><div class="_42ef"><div class="_4l_v"><span><span>Today is </span><span class="fwb"><!-- react-text: 26 -->Brian Hill<!-- /react-text --></span><span>'s birthday.</span></span><div class="_33f clearfix" direction="left"><div class="_ohe lfloat"><img class="_10cu img _8o _8r img" src="https://www.facebook.com/rsrc.php/v3/yW/r/5wo8zkcX6j-.png" alt=""></div><div class=""><div class="_42ef _8u"><span><abbr class="_33g livetimestamp" title="Friday, January 27, 2017 at 9:22am" data-utime="1485526952">9 hours ago</abbr></span></div></div></div></div></div></div></div></div></div></div></a></div><div><span class=""><div aria-label="Read" class="_55ma _55m9  _5c9_" data-hover="tooltip" data-tooltip-alignh="center" data-tooltip-content="Read" role="button" tabindex="0"></div></span><span class=""><div data-testid="chevron" class="_1_0c _55m9 uiPopover _6a _6b"><a href="#" aria-label="Notification options" class="_1_0d _2agf _p" aria-haspopup="true" role="button" aria-controls="js_r"></a></div></span></div></div>'
+		
+	}
+	//$("#notification_count").fadeOut("slow");
+	return false;
+}
+
+function loadMoreNotifications()
+{
+	page = parseInt( document.getElementById('notificationPage').value ) + 1;
+	refreshNotifications(page)
+		
+}
+
+function recount()
+{
+	$.ajax({
+		type: "POST",
+		url: "modules/common/notification_cmd.jsp?cmd=notify_count",
+		data: '',
+
+		success: function (result) {
+			if ( result.indexOf("count=") != -1 )
+			{
+				result = result.substring( "count=".length ).trim();
+				setNotifyCount( parseInt(result) );
+			}
+			
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			try {
+				if (p.onError) p.onError(XMLHttpRequest, textStatus, errorThrown);
+			} catch (e) {}
+		}
+	});	
+	
+}
+
+function refreshNotifications(page)
+{
+	if ( page == 1 )
+		document.getElementById("notificationsBody").innerHTML = '';
+
+	$.ajax({
+		type: "POST",
+		url: "modules/common/notification_cmd.jsp?cmd=list&page=" + page,
+		data: '',
+
+		success: function (result) {
+			var v = "";				
+			for ( i = 0; i < result.count; ++i )
+			{
+			    if ( result.rows[i] )
+			    {
+				//console.log("XX " + JSON.stringify(result.rows[i]) );
+				var post = formatNotification(result.rows[i].uuid, "img/avatars/" + result.rows[i].fromUserAvatar, result.rows[i].fromUser, result.rows[i].createTime, result.rows[i].description, result.rows[i].link, result.rows[i].fromUserUuid );
+				v += post;
+			    }
+			}
+
+			//			
+			setNotifyCount( parseInt(result.total) );
+
+			//
+			
+//				var v = formatNotification('img/45.png', 'Jared Dubin', '2 months ago', 'likes the post', "https://labs.9lessons.info/status/2603");
+//				v += formatNotification('img/45.png', 'Jared Dubin', '2 months ago', 'likes the post', "https://labs.9lessons.info/status/2603");
+
+			document.getElementById('notificationPage').value = result.page;
+			document.getElementById("notificationsBody").innerHTML += v;
+			
+			if ( result.count == 0 )
+				document.getElementById('notificationFooter').style.display = "none";
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			try {
+				if (p.onError) p.onError(XMLHttpRequest, textStatus, errorThrown);
+			} catch (e) {}
+		}
+	});	
+}
+
+function clearAllNotifications()
+{
+	$.prompt("Are you sure you want to clear all of the notifications?", {
+		title: "Confirm",
+		buttons: { "Yes": true, "No": false },
+		submit: function(e,v,m,f){
+			// use e.preventDefault() to prevent closing when needed or return false. 
+			// e.preventDefault(); 
+
+			if ( v == true )
+			{
+				$.ajax({
+					type: "POST",
+					url: "modules/common/notification_cmd.jsp?cmd=clearAll",
+					data: '',
+
+					success: function (data) {
+						document.getElementById("notificationsBody").innerHTML = '';
+						setNotifyCount( 0 );
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						try {
+							if (p.onError) p.onError(XMLHttpRequest, textStatus, errorThrown);
+						} catch (e) {}
+					}
+				});
+			}
+		}
+	});	
+}
+
+
+function deleteNotification(uuid)
+{
+	$.ajax({
+		type: "POST",
+		url: "modules/common/notification_cmd.jsp?cmd=delete&uuid=" + uuid,
+		data: '',
+
+		success: function (data) {
+			document.getElementById("notificationsBody").innerHTML = '';
+			refreshNotifications(1);
+
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			try {
+				if (p.onError) p.onError(XMLHttpRequest, textStatus, errorThrown);
+			} catch (e) {}
+		}
+	});
+}
+
+
+function createNotification(userName, userUuid, avatar, link)
+{
+	document.getElementById("notificationContainer").style.display = 'none';
+	$.ajax({
+		type: "POST",
+		url: "modules/common/notification_cmd.jsp?cmd=render&user=" + escape(userName) + "&user_uuid=" + escape(userUuid) + "&link=" + escape(link ) + "&userAvatar=" + escape(avatar),
+		data: '',
+
+		success: function (data) {
+			renderNotification(data);
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			try {
+				if (p.onError) p.onError(XMLHttpRequest, textStatus, errorThrown);
+			} catch (e) {}
+		}
+	});
+}
+
+function renderNotification(data)
+{
+	var statesdemo = {
+	state0: {
+		title: '<b>Create Notification</b>',
+		html:data,
+		buttons: { Save: 1, Close: 0 },
+		submit:function(e,v,m,f){ 
+			//console.log(f);
+			
+			if ( v == 1 )
+			{
+				$.ajax({
+					type: "GET",
+					url: "modules/common/notification_cmd.jsp",
+					data: f,
+
+					success: function (data) {
+						// done 
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						try {
+							if (p.onError) p.onError(XMLHttpRequest, textStatus, errorThrown);
+						} catch (e) {}
+					}
+				});
+			}
+
+			e.preventDefault();
+			$.prompt.close();
+		}
+	}
+};
+
+$.prompt(statesdemo);
+
+}
+
+
+function createReplyNotification(toUser, originalMsg)
+{
+	
+	document.getElementById("notificationContainer").style.display = 'none';
+	$.ajax({
+		type: "POST",
+		url: "modules/common/notification_cmd.jsp?cmd=render_reply&toUser=" + escape(toUser) + "&link=" + escape( originalMsg ),
+		data: '',
+
+		success: function (data) {
+			renderNotification(data);
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			try {
+				if (p.onError) p.onError(XMLHttpRequest, textStatus, errorThrown);
+			} catch (e) {}
+		}
+	});
+}
+
+
+function sendNotification(fromUserUuid, userName)
+{
+	document.getElementById("notificationContainer").style.display = 'none';
+	$.ajax({
+		type: "POST",
+		url: "modules/common/notification_cmd.jsp?cmd=render&user=" + escape(userName) + "&user_uuid=" + escape(userUuid) + "&link=" + escape(link ) + "&userAvatar=" + escape(avatar),
+		data: '',
+
+		success: function (data) {
+			renderNotification(data);
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			try {
+				if (p.onError) p.onError(XMLHttpRequest, textStatus, errorThrown);
+			} catch (e) {}
+		}
+	});
+	
+}
+
+function formatNotification(uuid, avatar, userName, time, msg, link, fromUserUuid)
+{
+	var v = '<div class="timeline-block notificationsBlock popupBlock item"><div class="">';
+	var linkCode = "";
+	
+	if ( avatar === 'img/avatars/undefined' )
+		avatar = 'img/avatars/sunbase.png';
+	if ( userName === 'undefined' || userName === undefined )
+		userName = 'Anonymous';
+	
+	var reference = uuid;
+	if ( msg != null && msg.indexOf("New general task") != -1 )
+	{
+		linkCode += "<a href='#' onclick=\"toggleNotifications();navigateMenuItem('modules/plugins/myday/myday_form.jsp?parentId=USER_UUID'); return false\" class='popupBlock'>";
+	}
+	else if ( link == null || link.length == 0 )
+	{
+		linkCode += '<a href="#" onclick="return false;" class="popupBlock">';
+		
+	}
+	else if ( link.startsWith(".") )
+		reference = link.substring(1);
+	else if ( link.indexOf("todo_edit.jsp") != -1 )
+		linkCode += "<a href='#' onclick=\"toggleNotifications();window.open('" + link.replace("%3F","?") + "').focus(); return false\" class='popupBlock'>";
+	else
+		linkCode += '<a href="#" onclick=\'toggleNotifications();navigateMenuItem("' + link.replace("index.jsp?nomenu=1&page=","").replace("%3F","?") + '"); return false;\' class="popupBlock">';
+	
+	// liked <b>' + userName + '</b>s status: 
+	v = v + '<div class="panel-heading2"><div class="media nBlock"><span class="pull-left"><img src="' + avatar + '" class="media-object searchFace"></span>'
+		+ '<div class="media-body-popup">' + linkCode + '<b class="feed-author">' + userName + '</b><span> <span class="notificationContent">' + msg + '</span>'
+		+ '<div class="timeago">' + time + '</div></a>';
+	if ( '000000000000' !== fromUserUuid && '111111111' !== fromUserUuid)
+		v += '<img src="img/reply.jpg" height="24" width="20" onclick="createReplyNotification(\'' + fromUserUuid + '\',\'' + reference + '\'); return false;"/>';
+	v += '<img style="margin-left:20px" src="img/redx.png" onclick="deleteNotification(\'' + uuid + '\'); return false;"/></span></div></div></div></a></div></div>';
+	return v;
+}
+
+function hideNotifications()
+{
+	$("#notificationContainer").hide();
+}
